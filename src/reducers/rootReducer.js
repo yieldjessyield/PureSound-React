@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-export default function reducerArtist(state = {users:[]}, action){
+function reducerUser(state = {}, action){
   switch (action.type){
     case "FETCH_USER":
       return action.payload
@@ -9,6 +9,7 @@ export default function reducerArtist(state = {users:[]}, action){
   }
 }
 
-const rootReducer = combineReducers({artist: reducerArtist, songs: reducerSongs})
+const rootReducer = combineReducers({user: reducerUser})
+// include later songs: reducerSongs, and artist: reducerArtist
 
 export default rootReducer
