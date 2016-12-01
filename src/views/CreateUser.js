@@ -18,6 +18,7 @@ import { bindActionCreators } from 'redux'
   render() {
     return(
       <div>
+      <h1>Sign Up</h1>
       <form onSubmit={this.handleCreateUser.bind(this)}>
         <label type="text">email</label>
         <input type="text" /><br/>

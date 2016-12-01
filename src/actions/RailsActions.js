@@ -16,15 +16,16 @@ export function createUserAction(email, password, phoneNumber){
 }
 
 
-export function getUserAction(){
+export function loginUserAction(email, password){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/users",
-            type: "GET",
-            headers: {authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.5bOtjhjsuq1aGYz_FOYasMyWL8KgEyllESDwX_VLwuU"}
-            })
-    .done(function(data){
-      console.log(data)
-      dispatch({type: 'FETCH_USERS', payload: data})
+    $.ajax({url:"http://localhost:3000/sessions",
+            type: "POST",
+            data: JSON.stringify({user: {email: email, password: password}}),
+     contentType:"application/json; charset=utf-8",
+     dataType:"json"
+    }).done(function(data){
+      debugger
+      dispatch({type: 'NEW_USER', payload: data})
     })
   }
 }
