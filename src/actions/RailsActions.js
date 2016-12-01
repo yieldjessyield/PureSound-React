@@ -1,19 +1,22 @@
 import $ from 'jquery'
 
-export default function createUser(){
+export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
   $.ajax({
      url: 'http://localhost:3000/users',
-     type:"POST",
-     data: JSON.stringify({auth: {email: email, password: password, phone_number: phone_number}}),
+     type:'POST',
+     data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",
      dataType:"json"
-    })
+    }).done(function(data){
+      debugger
+      dispatch({type: 'NEW_USER', payload: data})
+  })
   }
 }
 
 
-export default function getUsers(){
+export function getUserAction(){
   return function(dispatch){
     $.ajax({url:"http://localhost:3000/users",
             type: "GET",

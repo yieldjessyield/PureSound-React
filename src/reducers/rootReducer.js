@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 function reducerUser(state = {}, action){
   switch (action.type){
-    case "FETCH_USER":
+    case "NEW_USER":
       return action.payload
     default:
       return state
