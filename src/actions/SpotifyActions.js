@@ -26,21 +26,29 @@ var scopes = 'user-follow-modify user-follow-read user-library-modify user-top-r
 // started using Passport
 // https://github.com/jmperez/passport-spotify
 
-export function loginSpotUserAction(email, password){
+export function loginSpotUserAction(){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://localhost:3000/users',
-     type:'POST',
-     data: JSON.stringify({user: {email: email, password: password}}),
-     contentType:"application/json; charset=utf-8",
-     dataType:"json"
+     url: 'http://api.spotify.com/v1/artists/q=dnce',
+     type:'GET'
     }).done(function(data){
       debugger
-      dispatch({type: 'NEW_USER', payload: data})
   })
   }
 }
+
+// //top tracks
+// /v1/artists/{id}/top-tracks
+// related artists
+// /v1/artists/{id}/related-artists
+
+
+
+
+
+
+
 
 // our thingy
 //https://accounts.spotify.com/authorize/?client_id=d4ed30d7fe77479192e87098f379d0fc&response_type=code&redirect_uri=http://localhost:3001&scope=user-follow-modify%20user-follow-read%20user-library-modify%20user-top-read`
