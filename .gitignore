@@ -13,3 +13,6 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+  client_id: d4ed30d7fe77479192e87098f379d0fc
+  client_secret: e4c0f3dd90304d3292c0f4ac63652304

@@ -1,33 +1,31 @@
 import React from 'react';
-import { loginUserAction } from '../actions/RailsActions'
 import { loginSpotUserAction } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
 // import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-  class LoginUser extends React.Component {
+  class SpotloginUser extends React.Component {
 
-    handleloginUser (event){
+    handleSpotloginUser (event){
       event.preventDefault()
       let email = event.target.children[1].value
       let password = event.target.children[4].value
 
-      this.props.loginUserAction(email, password)
+      this.props.loginSpotUserAction(email, password)
     }
 
 
   render() {
     return(
       <div>
-      <h1>Login</h1>
-      <form onSubmit={this.handleloginUser.bind(this)}>
+      <h1>Login To Spotify</h1>
+      <form onSubmit={this.handleSpotloginUser.bind(this)}>
         <label type="text">email</label>
         <input type="text" /><br/>
         <label type="text">password</label>
         <input type="password" /><br/>
         <button type="submit">Login</button>
       </form>
-      <button onClick={this.props.loginSpotUserAction.bind(this)}>Login To Spotify</button>
       </div>
     )
   }
@@ -35,8 +33,8 @@ import { bindActionCreators } from 'redux'
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({loginUserAction, loginSpotUserAction}, dispatch)
+  return bindActionCreators({loginSpotUserAction, loginSpotUserAction}, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(LoginUser)
+export default connect(null, mapDispatchToProps)(SpotloginUser)
 
