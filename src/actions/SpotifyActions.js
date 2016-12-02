@@ -3,25 +3,11 @@ import $ from 'jquery'
 // import {SpotifyStrategy} from 'passport-spotify'
 // import {User} from 'passport-spotify'
 
-var client_id = 'd4ed30d7fe77479192e87098f379d0fc'; // Your client id
-var client_secret = 'e4c0f3dd90304d3292c0f4ac63652304'; // Your secret
-var redirect_uri = 'http://localhost:3001'; // Your redirect uri
-var scopes = 'user-follow-modify user-follow-read user-library-modify user-top-read'
+// var client_id = 'd4ed30d7fe77479192e87098f379d0fc'; // Your client id
+// var client_secret = 'e4c0f3dd90304d3292c0f4ac63652304'; // Your secret
+// var redirect_uri = 'http://localhost:3001'; // Your redirect uri
+// var scopes = 'user-follow-modify user-follow-read user-library-modify user-top-read'
 
-// export function loginSpotUserAction(){
-//   passport.use(new SpotifyStrategy({
-//       clientID: client_id,
-//       clientSecret: client_secret,
-//       callbackURL: redirect_uri
-//     },
-//     function(accessToken, refreshToken, profile, done) {
-//     debugger
-//       // User.findOrCreate({ spotifyId: profile.id }, function (err, user) {
-//       //   return done(err, user);
-//       // });
-//     }
-//   ));
-// }
 
 // started using Passport
 // https://github.com/jmperez/passport-spotify
