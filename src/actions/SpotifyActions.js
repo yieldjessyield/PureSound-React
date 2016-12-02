@@ -26,14 +26,61 @@ var scopes = 'user-follow-modify user-follow-read user-library-modify user-top-r
 // started using Passport
 // https://github.com/jmperez/passport-spotify
 
-export function loginSpotUserAction(){
+export function findArtist(artistId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/q=dnce',
+     url: 'http://api.spotify.com/v1/artists/' + artistId,
      type:'GET'
     }).done(function(data){
       debugger
+      //data.name
+      //data.picture(s?)
+      //data.followers
+  })
+  }
+}
+
+export function findRelatedArtist(artistId){
+  event.preventDefault()
+  return function(dispatch){
+    $.ajax({
+     url: 'http://api.spotify.com/v1/artists/' + artistId + 'related-artists',
+     type:'GET'
+    }).done(function(data){
+      //array of #? artists
+        //artist.id
+        //will have to call the findArtist function to get artist details
+
+  })
+  }
+}
+
+export function findTopTracks(artistId){
+  event.preventDefault()
+  return function(dispatch){
+    $.ajax({
+     url: 'http://api.spotify.com/v1/artists/' + artistId + 'top-tracks',
+     type:'GET'
+    }).done(function(data){
+      //array of 3 songs
+        //song id
+        //song name
+      //get album id (to make call for album image)
+
+  })
+  }
+}
+
+export function findAlbumArt(albumId){
+  event.preventDefault()
+  return function(dispatch){
+    $.ajax({
+     url: 'http://api.spotify.com/v1/artists/' + artistId + 'top-tracks',
+     type:'GET'
+    }).done(function(data){
+      //get album art
+
   })
   }
 }
