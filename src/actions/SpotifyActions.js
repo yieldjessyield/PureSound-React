@@ -50,7 +50,7 @@ export function findAlbumArt(albumId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + artistId + 'top-tracks',
+     url: 'http://api.spotify.com/v1/artists/' + albumId + 'top-tracks',
      type:'GET'
     }).done(function(data){
       //get album art

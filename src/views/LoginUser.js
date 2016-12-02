@@ -27,7 +27,7 @@ import { bindActionCreators } from 'redux'
         <input type="password" /><br/>
         <button type="submit">Login</button>
       </form>
-      <button onClick={this.props.loginSpotUserAction.bind(this)}>Login To Spotify</button>
+      <button>Login To Spotify</button>
       </div>
     )
   }
@@ -39,4 +39,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(null, mapDispatchToProps)(LoginUser)
-
