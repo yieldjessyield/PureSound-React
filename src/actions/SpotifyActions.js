@@ -30,10 +30,13 @@ export function loginSpotUserAction(){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/q=dnce',
-     type:'GET'
+      method:'GET',
+      url: 'http://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF'
     }).done(function(data){
       debugger
+      // photo : data.images[0].url
+      // name: data.name
+      // followers: data.followers.total
   })
   }
 }
