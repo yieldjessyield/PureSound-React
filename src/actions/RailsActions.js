@@ -32,6 +32,26 @@ export function loginUserAction(email, password){
   }
 }
 
+export function storeArtistRails(artistData){
+  return function(dispatch){
+    // Go to rails and set up in artists controller create
+    // method. parce this data and save relevent stuff to db
+    $.ajax({url:"http://localhost:3000/artists",
+            type: "POST",
+            data: JSON.stringify({artistData: artistData}),
+     contentType:"application/json; charset=utf-8",
+     headers: {authorization: localStorage.getItem('jwt')}
+    }).done(function(data){
+      debugger
+      // make sure this data is coming back from
+      // db saying something like "done".
+      // Dispatch to spotifyactions getSongs action
+      dispatch({type: 'GET_ARTIST_SONGS', payload: data})
+    })
+  }
+}
+
+// makes sure this works, not tested yet
 export function getArtistAction(artist_spotify_id){
   return function(dispatch){
     $.ajax({url:"http://localhost:3000/artists",

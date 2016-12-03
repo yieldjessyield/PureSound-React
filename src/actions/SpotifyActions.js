@@ -1,16 +1,30 @@
 import $ from 'jquery'
+import {storeArtist} from './ReactActions'
+import {storeArtistRails} from './RailsActions'
 
-export function findArtist(artistId){
+export function findArtist(artistName){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
       method:'GET',
-      url: 'http://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF'
+      url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
       debugger
+      let artist = data.artists.items[0]
+      let artistName = artist.name
+      let artistId = artist.id
+      let artistImage = artist.images[0].url
+      let artistInfo = {artistName, artistId, artistImage}
+      // go to ReactActions and save artist info to state
+      // this saves to state artist info
+      dispatch(storeArtist(artistInfo))
+      // need to do this
+      dispatch(storeArtistRails(artistInfo))
       // photo : data.images[0].url
       // name: data.name
       // followers: data.followers.total
+      //data.tracks[0].name
+      //data.tracks[0].preview_url
   })
   }
 }
