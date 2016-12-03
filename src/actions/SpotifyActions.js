@@ -16,7 +16,10 @@ export function findInitialArtist(artistName){
       let artistId = artist.id
       let artistImage = artist.images[0].url
       let artistFollowers = artist.followers.total
-      let artistInfo = {artistName, artistId, artistImage}
+      let artistInfo = {artistName: artistName,
+                            artistId: artistId,
+                            artistImage: artistImage,
+                            artistFollowers: artistFollowers}
       // go to ReactActions and save artist info to state
       // this saves to state artist info
       dispatch(storeArtist(artistInfo))
@@ -36,7 +39,11 @@ export function findArtistById(artistId){
       let artistName = data.name
       let artistImage = data.images[0].url
       let artistFollowers = data.followers.total
-      let artistInfo = {artistName, artistId, artistImage}
+      let artistInfo = {artistName: artistName,
+                        artistId: artistId,
+                        artistImage: artistImage,
+                        artistFollowers: artistFollowers}
+        //not going to keep this data in database until they swipe right
   })
   }
 }
