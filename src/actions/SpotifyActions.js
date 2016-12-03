@@ -10,6 +10,7 @@ export function findInitialArtist(artistName){
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
       debugger
+
       let artist = data.artists.items[0]
       let artistName = artist.name
       let artistId = artist.id
@@ -32,7 +33,6 @@ export function findArtistById(artistId){
       method:'GET',
       url: `https://api.spotify.com/v1/artists/` + artistId
     }).done(function(data){
-      debugger
       let artistName = data.name
       let artistImage = data.images[0].url
       let artistFollowers = data.followers.total
@@ -64,6 +64,7 @@ export function findTopTracks(artistId){
      url: 'http://api.spotify.com/v1/artists/' + artistId + '/top-tracks?country=SE',
      type:'GET'
     }).done(function(data){
+      //can refactor later
       let songs = [{
         id:data.tracks[0].id,
         name:data.tracks[0].name,
@@ -82,6 +83,7 @@ export function findTopTracks(artistId){
         album_id:data.tracks[2].album.id,
         preview:data.tracks[2].preview_url
       }]
+
   })
   }
 }
@@ -90,10 +92,12 @@ export function findAlbumArt(albumId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + albumId + 'top-tracks',
+     url: `https://api.spotify.com/v1/albums/` + albumId ,
      type:'GET'
     }).done(function(data){
-      //get album art
+      let albumArt = data.images[0].url
+
+      //3o8PXwaEbXtQMt4DgBNH2L
   })
   }
 }
