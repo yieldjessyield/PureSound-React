@@ -2,7 +2,7 @@ import $ from 'jquery'
 import {storeArtist} from './ReactActions'
 import {storeArtistRails} from './RailsActions'
 
-export function findArtist(artistName){
+export function findInitialArtist(artistName){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
@@ -14,17 +14,29 @@ export function findArtist(artistName){
       let artistName = artist.name
       let artistId = artist.id
       let artistImage = artist.images[0].url
+      let artistFollowers = artist.followers.total
       let artistInfo = {artistName, artistId, artistImage}
       // go to ReactActions and save artist info to state
       // this saves to state artist info
       dispatch(storeArtist(artistInfo))
       // need to do this
       dispatch(storeArtistRails(artistInfo))
-      // photo : data.images[0].url
-      // name: data.name
-      // followers: data.followers.total
-      //data.tracks[0].name
-      //data.tracks[0].preview_url
+  })
+  }
+}
+
+export function findArtistById(artistId){
+  event.preventDefault()
+  return function(dispatch){
+    $.ajax({
+      method:'GET',
+      url: `https://api.spotify.com/v1/artists/` + artistId
+    }).done(function(data){
+      debugger
+      let artistName = data.name
+      let artistImage = data.images[0].url
+      let artistFollowers = data.followers.total
+      let artistInfo = {artistName, artistId, artistImage}
   })
   }
 }
@@ -33,13 +45,14 @@ export function findRelatedArtist(artistId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + artistId + 'related-artists',
+     url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
-      //array of #? artists
-        //artist.id
-        //will have to call the findArtist function to get artist details
+      let relatedArtists = []
 
+      for (let i = 0; i<5; i++){
+        relatedArtists.push(data.artists[i].id)
+      }
   })
   }
 }
@@ -48,14 +61,27 @@ export function findTopTracks(artistId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + artistId + 'top-tracks',
+     url: 'http://api.spotify.com/v1/artists/' + artistId + '/top-tracks?country=SE',
      type:'GET'
     }).done(function(data){
-      //array of 3 songs
-        //song id
-        //song name
-      //get album id (to make call for album image)
-
+      let songs = [{
+        id:data.tracks[0].id,
+        name:data.tracks[0].name,
+        album_id:data.tracks[0].album.id,
+        preview:data.tracks[0].preview_url
+      },
+      {
+        id:data.tracks[1].id,
+        name:data.tracks[1].name,
+        album_id:data.tracks[1].album.id,
+        preview:data.tracks[1].preview_url
+      },
+      {
+        id:data.tracks[2].id,
+        name:data.tracks[2].name,
+        album_id:data.tracks[2].album.id,
+        preview:data.tracks[2].preview_url
+      }]
   })
   }
 }

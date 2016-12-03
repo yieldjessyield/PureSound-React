@@ -1,5 +1,5 @@
 import React from 'react';
-import { findArtist } from '../actions/SpotifyActions'
+import { findTopTracks } from '../actions/SpotifyActions'
 // import { loginSpotUserAction } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
 // import { Component } from 'react-redux'
@@ -10,8 +10,10 @@ import { bindActionCreators } from 'redux'
     handleArtistSearch (event){
       event.preventDefault()
       let artist = event.target.children[1].value
-      this.props.findArtist(artist)
+      this.props.findTopTracks(artist)
     }
+
+    // 56ZTgzPBDge0OvCGgMO3OY
 
 
   render() {
@@ -30,7 +32,7 @@ import { bindActionCreators } from 'redux'
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({findArtist}, dispatch)
+  return bindActionCreators({findTopTracks}, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SearchArtist)
