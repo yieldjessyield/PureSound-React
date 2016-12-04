@@ -32,13 +32,15 @@ export function loginUserAction(email, password){
   }
 }
 
-export function storeArtistRails(artistData){
+export function storeArtistsRails(artistsData){
+  debugger
   return function(dispatch){
     // Go to rails and set up in artists controller create
     // method. parce this data and save relevent stuff to db
     $.ajax({url:"http://localhost:3000/artists",
             type: "POST",
-            data: JSON.stringify({artistData: artistData}),
+            data: JSON.stringify({artists: {artistsData: artistsData}}),
+            // ({user: {email: email, password: password, phone_number: phoneNumber}})
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){

@@ -55,6 +55,7 @@ export function findRelatedArtist(artistId){
      url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
+      // this needs to go to root reducter and update state with related artists array
       let relatedArtists = []
 
       for (let i = 0; i<5; i++){
