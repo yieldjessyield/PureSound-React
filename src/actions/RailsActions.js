@@ -29,6 +29,8 @@ export function loginUserAction(email, password){
       localStorage.setItem('jwt', data.jwt)
       // fix this dispatch it's not working yet
       dispatch({type: 'LOGIN_USER', payload: data})
+      dispatch(getLikedArtistsAction())
+      // login with this email it's the first user: desmond.farrell@ryan.biz
     })
   }
 }
@@ -44,30 +46,32 @@ export function storeArtistsRails(artistsData){
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      // save likedartists to state
+      // this will save likedartists to state
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
       let artists = data.liked_artists
       var randArtist = artists[Math.floor(Math.random()*artists.length)];
 
       dispatch(findRelatedArtist(randArtist.artist_spotify_id))
 
-      // Dispatch to spotifyactions getSongs action maybe after
-      // dispatch({type: 'GET_ARTIST_SONGS', payload: data})
     })
   }
 }
 
-// makes sure this works, not tested yet
-export function getArtistAction(artist_spotify_id){
+// makes sure this works, not tested yet should get triggered by login button
+export function getLikedArtistsAction(){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/artists",
+    $.ajax({url:"http://localhost:3000/liked_artists",
             type: "GET",
-            data: JSON.stringify({artist_spotify_id: artist_spotify_id}),
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      // fix this dispatch it's not working yet
-      dispatch({type: 'SAVE_ARTIST_INFO', payload: data})
+      // debugger
+      // saves the user's liked artists to the state
+      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      let artists = data.liked_artists
+      var randArtist = artists[Math.floor(Math.random()*artists.length)];
+      // then finds the related artist based on random artist
+      dispatch(findRelatedArtist(randArtist.artist_spotify_id))
     })
   }
 }

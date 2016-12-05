@@ -29,6 +29,7 @@ export function findInitialArtist(artistName){
   }
 }
 
+// this lil baby is used by both getLikeArtists action and the storeArtistsRails action
 export function findRelatedArtist(artistId){
   // event.preventDefault()
   return function(dispatch){
@@ -41,6 +42,7 @@ export function findRelatedArtist(artistId){
       //grab only one artist form this and dispatch SET_SWIPE_ARTIST
       var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
       //grab only the data we want from randArtist and organize under swipeArtist
+      debugger
       var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
       // set swipeArtist state with dispatch
       dispatch({type: 'SET_SWIPE_ARTIST', payload: swipeArtist})

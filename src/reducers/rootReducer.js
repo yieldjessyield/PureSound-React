@@ -7,11 +7,10 @@ function reducerUser(state = {}, action){
     console.log(action.payload)
     //maybe should be id here?
     case "LOGIN_USER":
-      return action.payload.userId
-    debugger
-    //save user id and current user t or false
-    // save artist info related to user
-      return action.payload.name
+    // debugger
+      return action.payload
+    // debugger
+    //maybe save user id and current user t or false
     default:
       return state
   }
