@@ -20,15 +20,21 @@ function reducerUser(state = {}, action){
 function reducerStarterArtist(state= {}, action){
   switch (action.type){
     case "SAVE_ARTIST_INFO":
-      debugger
       return Object.assign({}, state, action.payload)
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, artist: reducerStarterArtist})
-// {user:{} artist{artist_spotifyId}}
-// include later songs: reducerSongs, and artist: reducerArtist
+function reducerSongs(state={}, action){
+  switch (action.type){
+    case "SAVE_SONGS":
+      return {...state, songs: action.payload}
+    default:
+      return state
+  }
+}
+
+const rootReducer = combineReducers({user: reducerUser, artist: reducerStarterArtist, songs: reducerSongs})
 
 export default rootReducer

@@ -9,3 +9,15 @@ body {
 .Home {
   padding-top: 100px;
 }
+
+.artist {
+  float: left;
+  margin: 0 1.5%;
+  width: 63%;
+}
+
+.songs {
+  float: right;
+  margin: 0 1.5%;
+  width: 30%;
+}

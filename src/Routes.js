@@ -6,6 +6,7 @@ import CreateUser from './components/CreateUser'
 import LoginUser from './components/LoginUser'
 import SearchArtist from './components/SearchArtist'
 import SubmitArtists from './components/SubmitArtists'
+import SwipeArtist from './components/SwipeArtist'
 
 
 const Routes = (
@@ -15,6 +16,7 @@ const Routes = (
     <Route path="/login" component={LoginUser} />
     <Route path="/search" component={SearchArtist} />
     <Route path="/submit" component={SubmitArtists} />
+    <Route path="/artist" component={SwipeArtist} />
   </Route>
 )
 
