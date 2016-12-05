@@ -36,11 +36,10 @@ export function findRelatedArtist(artistId){
      url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
-      // this needs to go to root reducter and update state with related artists array
-      var relatedArtists = data.artists
+      // this needs to go to root reducter and update state with shortened related artists array
+      var relatedArtists = data.artists.slice(0,10)
       //grab only one artist form this and dispatch SET_SWIPE_ARTIST
       var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
-      debugger
       //grab only the data we want from randArtist and organize under swipeArtist
       var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
       // set swipeArtist state with dispatch
