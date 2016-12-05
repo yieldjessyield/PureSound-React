@@ -8,7 +8,7 @@ import {Provider} from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers/rootReducer'
 import Routes from './Routes'
-import { Router, hashHistory } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -16,7 +16,7 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
 
 ReactDOM.render(
   <Provider store={store}>
-  <Router history={hashHistory} routes={Routes} />
+  <Router history={browserHistory} routes={Routes} />
   </Provider>,
   document.getElementById('root')
 );

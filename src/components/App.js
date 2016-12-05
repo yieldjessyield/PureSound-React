@@ -9,10 +9,14 @@ import rootReducer from '../reducers/rootReducer'
 const composeEnhancers = composeWithDevTools({});
 
 class App extends Component {
+  componentWillReceiveProps(nextProps){
+    debugger;
+  }
   render() {
     return (
       <div className="App">
         {/* <Home /> */}
+
         {this.props.children}
       </div>
     );

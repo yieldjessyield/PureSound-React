@@ -7,11 +7,11 @@ export function storeArtist(artistInfo){
   }
 }
 
-export function storeinitialArtist(artist){
-  return function(dispatch) {
-    dispatch({type: 'INITIAL_ARTISTS', payload: artist})
-  }
-}
+// export function storeInitialArtist(artist){
+//   return function(dispatch) {
+//     dispatch({type: 'INITIAL_ARTISTS', payload: artist})
+//   }
+// }
 
 export function storeYesArtists(artist) {
   return function(dispatch) {

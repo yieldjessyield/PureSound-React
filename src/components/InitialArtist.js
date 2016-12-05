@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { findArtistByName } from '../actions/SpotifyActions'
 import CheckArtist from './CheckArtist'
+import YesArtists from './YesArtists'
 
 // id, name, image
 
-class initialArtist extends Component {
-
+class InitialArtist extends Component {
   handleArtistCheck(event){
     event.preventDefault()
     this.props.findArtistByName(event.target.children[1].value)
@@ -24,6 +24,7 @@ class initialArtist extends Component {
       </form>
       <CheckArtist />
       <h1>Your Artists</h1>
+      <YesArtists />
       </div>
     )
   }
@@ -33,8 +34,6 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({findArtistByName: findArtistByName }, dispatch)
 }
 
-// function mapStateToProps(state){
-//   return {initialArtist: state.initialArtist}
-// }
 
-export default connect(null, mapDispatchToProps)(initialArtist)
+
+export default connect(null, mapDispatchToProps)(InitialArtist)

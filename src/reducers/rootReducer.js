@@ -25,25 +25,25 @@ function reducerStarterArtist(state= {}, action){
   }
 }
 
-function reducerinitialArtist(state=[], action) {
+function reducerInitialArtist(state={}, action) {
   switch (action.type) {
-    case 'INITIAL_ARTISTS':
-      return [...state, action.payload]
+    case 'INITIAL_ARTIST':
+      return state = action.payload
     default:
       return state
   }
 }
 
-function reducerYesArtists(state=[], action) {
+function reducerYesArtists(state={artist: []}, action) {
   switch (action.type) {
     case 'YES_ARTISTS':
-      return [...state, action.payload]
+      return {...state, artist: [...state.artist, action.payload]}
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, artist: reducerStarterArtist, initialArtist: reducerinitialArtist, yesArtists: reducerYesArtists})
+const rootReducer = combineReducers({user: reducerUser, artist: reducerStarterArtist, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
 

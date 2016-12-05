@@ -3,7 +3,7 @@ import { createUserAction } from '../actions/RailsActions'
 import {connect} from 'react-redux'
 // import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link, browserHistory } from 'react-router'
+// import { Link, browserHistory } from 'react-router'
 // import { findArtistByName } from '../actions/SpotifyActions'
 
 class CreateUser extends React.Component {
@@ -15,7 +15,9 @@ class CreateUser extends React.Component {
       let phoneNumber = event.target.children[7].value
 
       this.props.createUserAction(email, password, phoneNumber)
-      this.props.history.push('/artists')
+
+      // this.context.router.push('/artists')
+
       // browserHistory.push('/artists')
   }
 
@@ -45,9 +47,12 @@ class CreateUser extends React.Component {
 // }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(App)
+// CreateUser.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({createUserAction}, dispatch)
+  return bindActionCreators({createUserAction: createUserAction}, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(CreateUser)

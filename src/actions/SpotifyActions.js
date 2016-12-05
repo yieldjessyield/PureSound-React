@@ -1,17 +1,26 @@
 import $ from 'jquery'
 import { storeArtist } from './ReactActions'
 import { storeArtistRails } from './RailsActions'
-import { storeinitialArtist } from './ReactActions'
+import { browserHistory } from 'react-router'
+
+// import { storeInitialArtist } from './ReactActions'
 
 export function findArtistByName(artistName){
-  event.preventDefault()
+
   return function(dispatch){
     $.ajax({
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      let artist = data.artists.items[0].name
-      dispatch(storeinitialArtist(artist))
+      if (data.artists.items.length === 0){
+        browserHistory.push('/artists')
+      } else {
+        let artistId = data.artists.items[0].id
+        let artistName = data.artists.items[0].name
+        let artistUrl = data.artists.items[0].images[0].url
+        let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
+        dispatch({type: 'INITIAL_ARTIST', payload: artist})
+      }
     })
   }
 }

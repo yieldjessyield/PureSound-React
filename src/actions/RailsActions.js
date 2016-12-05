@@ -1,9 +1,9 @@
 import $ from 'jquery'
-import initialArtist from '../components/initialArtist'
 import { browserHistory } from 'react-router'
 
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
+    debugger;
   $.ajax({
      url: 'http://localhost:3000/users',
      type:'POST',
@@ -14,7 +14,7 @@ export function createUserAction(email, password, phoneNumber){
       localStorage.setItem('jwt', data.jwt)
       // fix this dispatch it's not working yet
       dispatch({type: 'NEW_USER', payload: data})
-      debugger
+      browserHistory.push('/artists')
     })
   }
 }

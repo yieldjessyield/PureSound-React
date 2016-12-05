@@ -7,17 +7,22 @@ class CheckArtist extends Component {
 
   handleYesCheck(){
     event.preventDefault()
-    this.props.storeYesArtists(this.props.initialArtist[0])
+    this.props.storeYesArtists(this.props.initialArtist)
+  }
+
+  handleNoCheck(){
+    event.preventDefault()
   }
 
   render(){
+
     let artist = this.props.initialArtist
     return(
       <div>
-      {artist}
-      <h5>Correct?</h5>
-      <button onClick={this.handleYesCheck.bind(this)}>Yes</button>
-      <button>No</button>
+        <div >{artist.artistName} </div>
+        <h5>Correct?</h5>
+        <button onClick={this.handleYesCheck.bind(this)}>Yes</button>
+        <button onClick={this.handleNoCheck.bind(this)}>No</button>
       </div>
     )
   }
