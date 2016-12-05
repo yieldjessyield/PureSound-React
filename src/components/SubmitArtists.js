@@ -16,7 +16,7 @@ import { bindActionCreators } from 'redux'
       let artist2 = {artist_spotify_id: "0TnOYISbd1XYRBk9myaseg", name: "Pitbull", image: "https://i.scdn.co/image/d6955bc790b818df4efb719a863e4d26f0c2522b"}
       let artist3 = {artist_spotify_id: "2CIMQHirSU0MQqyYHq0eOx", name: "deadmau5", image: "https://i.scdn.co/image/3e671ea42708d84694e05a2d2b9346a8e107ebcc"}
 
-      let artists = {artist1: artist1, artist2: artist2, artist3: artist3}
+      let artists = [artist1: artist1, artist2: artist2, artist3: artist3]
 
       this.props.storeArtistsRails(artists)
     }
