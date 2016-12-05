@@ -13,6 +13,7 @@ export function findArtistByName(artistName){
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
       if (data.artists.items.length === 0){
+        alert('Invalid Artist')
         browserHistory.push('/artists')
       } else {
         let artistId = data.artists.items[0].id
