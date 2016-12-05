@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 // import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-  class LoginUser extends React.Component {
+class LoginUser extends React.Component {
 
     handleloginUser (event){
       event.preventDefault()

@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import {storeArtist} from './ReactActions'
 import {storeArtistRails} from './RailsActions'
+import {storeSongs} from './ReactActions'
 
 export function findInitialArtist(artistName){
   event.preventDefault()
@@ -9,7 +10,7 @@ export function findInitialArtist(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      debugger
+
 
       let artist = data.artists.items[0]
       let artistName = artist.name
@@ -22,7 +23,6 @@ export function findInitialArtist(artistName){
                             artistFollowers: artistFollowers}
       // go to ReactActions and save artist info to state
       // this saves to state artist info
-      dispatch(storeArtist(artistInfo))
       // need to do this
       dispatch(storeArtistRails(artistInfo))
   })
@@ -60,39 +60,27 @@ export function findTopTracks(artistId){
      type:'GET'
     }).done(function(data){
       //can refactor later
+
       let songs = [{
         id:data.tracks[0].id,
         name:data.tracks[0].name,
-        album_id:data.tracks[0].album.id,
+        album_art:data.tracks[0].album.images[1].url,
         preview:data.tracks[0].preview_url
       },
       {
         id:data.tracks[1].id,
         name:data.tracks[1].name,
-        album_id:data.tracks[1].album.id,
+        album_art:data.tracks[1].album.images[1].url,
         preview:data.tracks[1].preview_url
       },
       {
         id:data.tracks[2].id,
         name:data.tracks[2].name,
-        album_id:data.tracks[2].album.id,
+        album_art:data.tracks[2].album.images[1].url,
         preview:data.tracks[2].preview_url
       }]
-
-  })
-  }
-}
-
-export function findAlbumArt(albumId){
-  event.preventDefault()
-  return function(dispatch){
-    $.ajax({
-     url: `https://api.spotify.com/v1/albums/` + albumId ,
-     type:'GET'
-    }).done(function(data){
-      let albumArt = data.images[0].url
-
-      //3o8PXwaEbXtQMt4DgBNH2L
+      console.log(songs)
+      dispatch(storeSongs(songs))
   })
   }
 }

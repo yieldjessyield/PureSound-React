@@ -6,3 +6,9 @@ export function storeArtist(artistInfo){
     dispatch({type: 'SAVE_ARTIST_INFO', payload: artistInfo})
   }
 }
+
+export function storeSongs(songs){
+  return function(dispatch){
+    dispatch({type: 'SAVE_SONGS', payload:songs})
+  }
+}
