@@ -10,7 +10,7 @@ function reducerUser(state = {}, action){
       return action.payload.userId
     debugger
     //save user id and current user t or false
-    // save artist info related to user
+    // save artist info related to use
       return action.payload.name
     default:
       return state
