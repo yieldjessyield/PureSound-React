@@ -30,10 +30,12 @@ class InitialArtist extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {yesArtists: state.yesArtists }
+}
+
 function mapDispatchToProps(dispatch){
   return bindActionCreators({findArtistByName: findArtistByName }, dispatch)
 }
 
-
-
-export default connect(null, mapDispatchToProps)(InitialArtist)
+export default connect(mapStateToProps, mapDispatchToProps)(InitialArtist)
