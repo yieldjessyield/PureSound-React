@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 function reducerUser(state = {}, action){
   switch (action.type){
     case "NEW_USER":
-    debugger
+    // debugger
     console.log(action.payload)
     //maybe should be id here?
     case "LOGIN_USER":
@@ -26,7 +26,7 @@ function reducerLikedArtists(state= [], action){
 function reducerSwipeArtist(state= {}, action){
   switch (action.type){
     case "SET_SWIPE_ARTIST":
-      debugger
+      // debugger
       return state = action.payload
     default:
       return state

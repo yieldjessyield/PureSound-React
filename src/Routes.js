@@ -16,7 +16,7 @@ const Routes = (
     <Route path="/login" component={LoginUser} />
     <Route path="/search" component={SearchArtist} />
     <Route path="/submit" component={SubmitArtists} />
-    <Route path="/artist" component={SwipeArtist} />
+    <Route path="/swipeArtist" component={SwipeArtist} />
   </Route>
 )
 

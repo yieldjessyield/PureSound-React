@@ -42,7 +42,7 @@ export function findRelatedArtist(artistId){
       //grab only one artist form this and dispatch SET_SWIPE_ARTIST
       var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
       //grab only the data we want from randArtist and organize under swipeArtist
-      debugger
+      // debugger
       var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
       // set swipeArtist state with dispatch
       dispatch({type: 'SET_SWIPE_ARTIST', payload: swipeArtist})

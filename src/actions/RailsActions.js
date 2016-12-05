@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import {findRelatedArtist} from './SpotifyActions'
+import {browserHistory} from 'react-router'
 
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
@@ -30,7 +31,10 @@ export function loginUserAction(email, password){
       // fix this dispatch it's not working yet
       dispatch({type: 'LOGIN_USER', payload: data})
       dispatch(getLikedArtistsAction())
+      browserHistory.push('/swipeArtist')
       // login with this email it's the first user: desmond.farrell@ryan.biz
+      //ben's email is this anais@jaskolskinitzsche.co
+      
     })
   }
 }

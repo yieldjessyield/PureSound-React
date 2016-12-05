@@ -27,7 +27,6 @@ class LoginUser extends React.Component {
         <input type="password" /><br/>
         <button type="submit">Login</button>
       </form>
-      <button>Login To Spotify</button>
       </div>
     )
   }

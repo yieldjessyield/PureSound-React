@@ -11,15 +11,11 @@ import { bindActionCreators } from 'redux'
 export default class ShowArtist extends React.Component {
 
   render() {
-    let artist = {
-      artistName: "Beach House",
-      artistImage: "https://i.scdn.co/image/ec7988b89f339182bc5292d42fa02479a39e9b8d"
-    }
 
     return(
       <div>
-        <h3>{artist.artistName}</h3>
-        <img src={artist.artistImage} alt='0' onClick={this.props.handleShowSongs}/>
+        <h3>{this.props.artist.name}</h3>
+        <img src={this.props.artist.image} alt='0' onClick={this.props.handleShowSongs}/>
       </div>
     )
   }

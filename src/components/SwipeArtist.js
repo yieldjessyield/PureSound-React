@@ -18,7 +18,7 @@ class SwipeArtist extends React.Component {
 
   handleShowSongs (event){
     event.preventDefault()
-    this.props.findTopTracks("56ZTgzPBDge0OvCGgMO3OY")
+    this.props.findTopTracks(this.props.swipeArtist.spotify_id)
   }
 
     render() {
@@ -33,7 +33,7 @@ class SwipeArtist extends React.Component {
         return (
           <div>
             <section className="artist">
-              <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)}/>
+              <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)} artist={this.props.swipeArtist}/>
             </section>
             <aside className="songs">
               {songsBar}
@@ -47,7 +47,7 @@ class SwipeArtist extends React.Component {
 
 
 function mapStateToProps(state){
-  return {songs: state.songs }
+  return {songs: state.songs, swipeArtist: state.swipeArtist}
 }
 
 function mapDispatchToProps(dispatch){
