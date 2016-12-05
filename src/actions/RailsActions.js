@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import initialArtist from '../components/initialArtist'
+import { browserHistory } from 'react-router'
 
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
@@ -12,7 +14,8 @@ export function createUserAction(email, password, phoneNumber){
       localStorage.setItem('jwt', data.jwt)
       // fix this dispatch it's not working yet
       dispatch({type: 'NEW_USER', payload: data})
-  })
+      debugger
+    })
   }
 }
 
@@ -33,7 +36,6 @@ export function loginUserAction(email, password){
 }
 
 export function storeArtistsRails(artistsData){
-  debugger
   return function(dispatch){
     // Go to rails and set up in artists controller create
     // method. parce this data and save relevent stuff to db
@@ -44,7 +46,6 @@ export function storeArtistsRails(artistsData){
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      debugger
       // make sure this data is coming back from
       // db saying something like "done".
       // Dispatch to spotifyactions getSongs action

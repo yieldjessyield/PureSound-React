@@ -1,6 +1,20 @@
 import $ from 'jquery'
-import {storeArtist} from './ReactActions'
-import {storeArtistRails} from './RailsActions'
+import { storeArtist } from './ReactActions'
+import { storeArtistRails } from './RailsActions'
+import { storeinitialArtist } from './ReactActions'
+
+export function findArtistByName(artistName){
+  event.preventDefault()
+  return function(dispatch){
+    $.ajax({
+      method:'GET',
+      url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
+    }).done(function(data){
+      let artist = data.artists.items[0].name
+      dispatch(storeinitialArtist(artist))
+    })
+  }
+}
 
 export function findInitialArtist(artistName){
   event.preventDefault()
@@ -9,8 +23,6 @@ export function findInitialArtist(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      debugger
-
       let artist = data.artists.items[0]
       let artistName = artist.name
       let artistId = artist.id

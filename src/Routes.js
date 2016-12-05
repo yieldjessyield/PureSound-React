@@ -6,13 +6,14 @@ import CreateUser from './components/CreateUser'
 import LoginUser from './components/LoginUser'
 import SearchArtist from './components/SearchArtist'
 import SubmitArtists from './components/SubmitArtists'
-
+import initialArtist from './components/initialArtist'
 
 const Routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="/signup" component={CreateUser} />
     <Route path="/login" component={LoginUser} />
+    <Route path="/artists" component={initialArtist} />
     <Route path="/search" component={SearchArtist} />
     <Route path="/submit" component={SubmitArtists} />
   </Route>
