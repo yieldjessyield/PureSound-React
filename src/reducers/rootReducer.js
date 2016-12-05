@@ -20,7 +20,6 @@ function reducerUser(state = {}, action){
 function reducerLikedArtists(state= [], action){
   switch (action.type){
     case "SAVE_LIKED_ARTISTS":
-      debugger
       return state = action.payload
     default:
       return state
@@ -29,17 +28,17 @@ function reducerLikedArtists(state= [], action){
 
 
 
-function reducerStarterArtist(state= {}, action){
+function reducerSwipeArtist(state= {}, action){
   switch (action.type){
-    case "SAVE_ARTIST_INFO":
+    case "SET_SWIPE_ARTIST":
       debugger
-      return Object.assign({}, state, action.payload)
+      return state = action.payload
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, artist: reducerStarterArtist})
+const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
 

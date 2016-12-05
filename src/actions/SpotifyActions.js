@@ -29,41 +29,27 @@ export function findInitialArtist(artistName){
   }
 }
 
-export function findArtistById(artistId){
-  event.preventDefault()
-  return function(dispatch){
-    $.ajax({
-      method:'GET',
-      url: `https://api.spotify.com/v1/artists/` + artistId
-    }).done(function(data){
-      let artistName = data.name
-      let artistImage = data.images[0].url
-      let artistFollowers = data.followers.total
-      let artistInfo = {artistName: artistName,
-                        artistId: artistId,
-                        artistImage: artistImage,
-                        artistFollowers: artistFollowers}
-        //not going to keep this data in database until they swipe right
-  })
-  }
-}
-
 export function findRelatedArtist(artistId){
-  event.preventDefault()
+  // event.preventDefault()
   return function(dispatch){
     $.ajax({
      url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
       // this needs to go to root reducter and update state with related artists array
-      let relatedArtists = []
-
-      for (let i = 0; i<5; i++){
-        relatedArtists.push(data.artists[i].id)
-      }
+      var relatedArtists = data.artists
+      //grab only one artist form this and dispatch SET_SWIPE_ARTIST
+      var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
+      debugger
+      //grab only the data we want from randArtist and organize under swipeArtist
+      var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
+      // set swipeArtist state with dispatch
+      dispatch({type: 'SET_SWIPE_ARTIST', payload: swipeArtist})
   })
   }
 }
+
+
 
 export function findTopTracks(artistId){
   event.preventDefault()

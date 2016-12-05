@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import {findRelatedArtist} from './SpotifyActions'
 
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
@@ -43,10 +44,12 @@ export function storeArtistsRails(artistsData){
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      // make sure this data is coming back from
-      // db saying something like "done".
       // save likedartists to state
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      let artists = data.liked_artists
+      var randArtist = artists[Math.floor(Math.random()*artists.length)];
+
+      dispatch(findRelatedArtist(randArtist.artist_spotify_id))
 
       // Dispatch to spotifyactions getSongs action maybe after
       // dispatch({type: 'GET_ARTIST_SONGS', payload: data})
@@ -68,3 +71,6 @@ export function getArtistAction(artist_spotify_id){
     })
   }
 }
+
+
+// need to create a storeSwipeArtist action that is called when swiped
