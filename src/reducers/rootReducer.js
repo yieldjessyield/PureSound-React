@@ -17,6 +17,18 @@ function reducerUser(state = {}, action){
   }
 }
 
+function reducerLikedArtists(state= [], action){
+  switch (action.type){
+    case "SAVE_LIKED_ARTISTS":
+      debugger
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
+
+
 function reducerStarterArtist(state= {}, action){
   switch (action.type){
     case "SAVE_ARTIST_INFO":
@@ -27,7 +39,7 @@ function reducerStarterArtist(state= {}, action){
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, artist: reducerStarterArtist})
+const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, artist: reducerStarterArtist})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
 
