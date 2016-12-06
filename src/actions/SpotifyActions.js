@@ -1,7 +1,31 @@
 import $ from 'jquery'
-import {storeArtist} from './ReactActions'
-import {storeArtistRails} from './RailsActions'
-import {storeSongs} from './ReactActions'
+import { storeSongs } from './ReactActions'
+import { storeArtist } from './ReactActions'
+import { storeArtistRails } from './RailsActions'
+import { browserHistory } from 'react-router'
+
+// import { storeInitialArtist } from './ReactActions'
+
+// change function names (initial artist)
+export function findArtistByName(artistName){
+  return function(dispatch){
+    $.ajax({
+      method:'GET',
+      url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
+    }).done(function(data){
+      if (data.artists.items.length === 0){
+        alert('Invalid Artist')
+        browserHistory.push('/artists')
+      } else {
+        let artistId = data.artists.items[0].id
+        let artistName = data.artists.items[0].name
+        let artistUrl = data.artists.items[0].images[0].url
+        let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
+        dispatch({type: 'INITIAL_ARTIST', payload: artist})
+      }
+    })
+  }
+}
 
 export function findInitialArtist(artistName){
   event.preventDefault()
@@ -10,8 +34,6 @@ export function findInitialArtist(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-
-
       let artist = data.artists.items[0]
       let artistName = artist.name
       let artistId = artist.id
@@ -50,8 +72,6 @@ export function findRelatedArtist(artistId){
   }
 }
 
-
-
 export function findTopTracks(artistId){
   event.preventDefault()
   return function(dispatch){
@@ -60,7 +80,6 @@ export function findTopTracks(artistId){
      type:'GET'
     }).done(function(data){
       //can refactor later
-
       let songs = [{
         id:data.tracks[0].id,
         name:data.tracks[0].name,
