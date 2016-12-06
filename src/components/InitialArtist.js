@@ -20,11 +20,11 @@ class InitialArtist extends Component {
       browserHistory.push('/swipeArtist')
     }
       return(
-        <div>
+        <div id='InitialArtist'>
         <h1>Submit Three of Your Favorite Artists</h1>
         <form onSubmit={this.handleArtistCheck.bind(this)}>
           <label type="text">Name:</label>
-          <input type="text"/>
+          <input id='artistSearch' type="text"/>
           <button type="submit">Submit</button>
         </form>
         <CheckArtist />

@@ -1,6 +1,5 @@
 import $ from 'jquery'
 import { storeSongs } from './ReactActions'
-import { storeArtist } from './ReactActions'
 import { storeArtistRails } from './RailsActions'
 import { browserHistory } from 'react-router'
 
@@ -11,10 +10,17 @@ export function findArtistByName(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      if (data.artists.items[0].id === undefined || data.artists.items[0].name === undefined || data.artists.items[0].images[0].url === undefined){
+      if (data.artists.items[0] === undefined){
         alert('Invalid Artist')
-        browserHistory.push('/artists')
-      } else {
+      }
+      else if(data.artists.items[0].images[0] === undefined){
+        let artistId = data.artists.items[0].id
+        let artistName = data.artists.items[0].name
+        let artistUrl = 'http://img.wennermedia.com/620-width/1363883485_lindsay-lohan-mugshot-1.jpg'
+        let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
+        dispatch({type: 'INITIAL_ARTIST', payload: artist})
+      }
+      else{
         let artistId = data.artists.items[0].id
         let artistName = data.artists.items[0].name
         let artistUrl = data.artists.items[0].images[0].url

@@ -5,13 +5,6 @@ body {
   background-position: center;
 }
 
-/*.Home {
-  float: center;
-  text-align: center;
-  padding-top: 50px;
-  padding-right: 50px;
-}*/
-
 #login {
   color: white;
   font-size: 20px;
@@ -23,7 +16,7 @@ body {
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
   background-color: black;
-  padding: 10px 20px;
+  padding: 15px 27px;
 }
 
 #login:hover {
@@ -45,7 +38,7 @@ body {
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
   background-color: black;
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 
 #signUp:hover {
@@ -71,40 +64,47 @@ body {
   padding-left: 40px;
 }
 
-.artistCheckImage {
-  width: 200px;
-  height: 200px
-}
-
-.showArtistName {
+#InitialArtist {
   text-align: center;
-  /*font-family: 'Monofett', cursive;*/
-  font-family: 'Monoton', cursive;
-  font-size: 45px
-  /*margin: 0 1.5%;
-  width: 63%;*/
 }
-/*
-.showArtistPhoto {
-  position: relative;
-  left: 25%;
-  right: 25%;
-  border-radius: 25px;
-  /*border-style: double;*/
-  /*height: 100%;*/
-  /*vertical-align: middle;*/
-/*}*/
 
-.showArtistPhoto {
-   position: absolute;
-   top: 40%;
-   left: 50%;
-   width: 400px;
+#artistCheckImage {
+  width: 400px;
+  height: auto;
+}
+
+#ShowArtist {
+  text-align: center;
+}
+
+#showArtistName {
+  font-size: 55px;
+  font-family: 'Bungee Outline', cursive;
+}
+
+#showArtistPhoto {
+   width: auto;
    height: 400px;
-   margin-top: -200px;
-   margin-left: -200px;
+   border-radius: 20px;
 }
 
+#albumPhoto {
+  width: 150px;
+  height: auto;
+  border-radius: 100px;
+}
+
+#songsBar {
+  text-align: center;
+}
+
+#songNames {
+  text-align: center;
+}
+
+/*#span {
+
+}*/
 
 .songs {
   float: center;
@@ -113,48 +113,4 @@ body {
   height: 50px;
   /*margin: 0 1.5%;
   width: 30%;*/
-}
-
-.signUp {
-  color: black;
-  font-size: 20px;
-  font-family: 'Quicksand', sans-serif;
-  text-decoration: none;
-  border: 2px solid black;
-  border-radius: 20px;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-  background-color: white;
-  padding: 4px 30px;
-}
-
-.signUp:hover {
-  color: white;
-  background-color: black;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-}
-
-.logIn {
-  color: black;
-  font-size: 20px;
-  font-family: 'Quicksand', sans-serif;
-  text-decoration: none;
-  border: 2px solid black;
-  border-radius: 20px;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-  background-color: white;
-  padding: 4px 40px;
-}
-
-.logIn:hover {
-  color: white;
-  background-color: black;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
 }
