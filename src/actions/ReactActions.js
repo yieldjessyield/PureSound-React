@@ -16,3 +16,9 @@ export function storeYesArtists(artist) {
     dispatch({type: 'YES_ARTISTS', payload: artist})
   }
 }
+
+export function removeSongsState(){
+  return function(dispatch){
+    dispatch({type: 'SAVE_SONGS', payload:[]})
+  }
+}

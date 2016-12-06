@@ -5,6 +5,7 @@ import { getLikedArtistsAction } from '../actions/RailsActions'
 import {storeLikedArtistAction} from '../actions/RailsActions'
 import { findTopTracks } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
+import { removeSongsState } from '../actions/ReactActions'
 import { bindActionCreators } from 'redux'
 import ShowArtist from './ShowArtist'
 import ShowSongs from './ShowSongs'
@@ -31,6 +32,7 @@ class SwipeArtist extends React.Component {
     //maybe don't use this here... should get artists based on a ReactActions action that
     // pulls from current state
     this.props.getLikedArtistsAction()
+    this.props.removeSongsState()
   }
 
   handleLikeArtist(event){
@@ -39,6 +41,7 @@ class SwipeArtist extends React.Component {
     // should also save to rails db and update liked artist state
     this.props.storeLikedArtistAction(this.props.swipeArtist)
     this.props.findRelatedArtist(this.props.swipeArtist.spotify_id)
+    this.props.removeSongsState()
   }
   // <h4>{songs[2].name}</h4>
     render() {
@@ -71,7 +74,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({findTopTracks:findTopTracks, getLikedArtistsAction:getLikedArtistsAction, storeLikedArtistAction:storeLikedArtistAction, findRelatedArtist: findRelatedArtist }, dispatch)
+  return bindActionCreators({removeSongsState:removeSongsState, findTopTracks:findTopTracks, getLikedArtistsAction:getLikedArtistsAction, storeLikedArtistAction:storeLikedArtistAction, findRelatedArtist: findRelatedArtist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SwipeArtist)
