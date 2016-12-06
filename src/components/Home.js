@@ -1,14 +1,20 @@
-import '../App.css';
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
+import '../App.css';
+import $ from 'jquery';
+import LoginUser from './LoginUser'
+import CreateUser from './CreateUser'
+
 
 const Home = () => {
   return (
     <div className="Home">
-      <button><Link to='/signup'>Sign Up</Link></button>
-      <button><Link to='/login'>Login</Link></button>
+      <LoginUser />
+      <CreateUser />
+      <div id='logo'>simplify</div>
     </div>
   )
 }
+
 
 module.exports = Home

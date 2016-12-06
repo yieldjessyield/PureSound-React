@@ -1,8 +1,6 @@
 import React from 'react';
 import { storeArtistsRails } from '../actions/RailsActions'
-// import { loginSpotUserAction } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
-// import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
   class SubmitArtist extends React.Component {

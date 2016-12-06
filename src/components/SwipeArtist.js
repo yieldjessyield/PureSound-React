@@ -1,13 +1,13 @@
 import React from 'react';
-import { findArtistById } from '../actions/SpotifyActions'
-import { findTopTracks }  from '../actions/SpotifyActions'
-import { likedArtist } from '../actions/ReactActions'
-import { unlikeArtist } from '../actions/ReactActions'
+import { findArtistById, findTopTracks } from '../actions/SpotifyActions'
+// import { findTopTracks }  from '../actions/SpotifyActions'
+import { likedArtist, unlikeArtist } from '../actions/ReactActions'
+// import { unlikeArtist } from '../actions/ReactActions'
 import {connect} from 'react-redux'
-// import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ShowArtist from './ShowArtist'
 import ShowSongs from './ShowSongs'
+import '../App.css';
 
 class SwipeArtist extends React.Component {
 
@@ -32,12 +32,8 @@ class SwipeArtist extends React.Component {
 
         return (
           <div>
-            <section className="artist">
               <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)} artist={this.props.swipeArtist}/>
-            </section>
-            <aside className="songs">
               {songsBar}
-            </aside>
           </div>
         );
       }

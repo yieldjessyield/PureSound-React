@@ -1,9 +1,8 @@
 import React from 'react';
 import { findInitialArtist } from '../actions/SpotifyActions'
-// import { loginSpotUserAction } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
-// import { Component } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import '../App.css';
 
   class SearchArtist extends React.Component {
 

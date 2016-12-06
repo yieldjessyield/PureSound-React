@@ -4,8 +4,6 @@ import { storeArtist } from './ReactActions'
 import { storeArtistRails } from './RailsActions'
 import { browserHistory } from 'react-router'
 
-// import { storeInitialArtist } from './ReactActions'
-
 // change function names (initial artist)
 export function findArtistByName(artistName){
   return function(dispatch){
@@ -13,7 +11,7 @@ export function findArtistByName(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      if (data.artists.items.length === 0){
+      if (data.artists.items[0].id === undefined || data.artists.items[0].name === undefined || data.artists.items[0].images[0].url === undefined){
         alert('Invalid Artist')
         browserHistory.push('/artists')
       } else {

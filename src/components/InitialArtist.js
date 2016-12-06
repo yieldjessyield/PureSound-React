@@ -6,8 +6,7 @@ import CheckArtist from './CheckArtist'
 import YesArtists from './YesArtists'
 import { browserHistory } from 'react-router'
 import { storeArtistsRails } from '../actions/RailsActions'
-
-// id, name, image
+import '../App.css';
 
 class InitialArtist extends Component {
   handleArtistCheck(event){

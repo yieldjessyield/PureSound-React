@@ -1,4 +1,3 @@
-
 body {
   background: url('./images/music3.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -6,18 +5,156 @@ body {
   background-position: center;
 }
 
-.Home {
-  padding-top: 100px;
+/*.Home {
+  float: center;
+  text-align: center;
+  padding-top: 50px;
+  padding-right: 50px;
+}*/
+
+#login {
+  color: white;
+  font-size: 20px;
+  font-family: 'Bungee Inline', cursive;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: black;
+  padding: 10px 20px;
 }
 
-.artist {
-  float: left;
-  margin: 0 1.5%;
-  width: 63%;
+#login:hover {
+  color: black;
+  background-color: white;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
 }
+
+#signUp {
+  color: white;
+  font-size: 20px;
+  font-family: 'Bungee Inline', cursive;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: black;
+  padding: 10px 20px;
+}
+
+#signUp:hover {
+  color: black;
+  background-color: white;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+}
+
+#signUpForm {
+  display: none;
+}
+
+#loginForm {
+  display: none;
+}
+
+#logo {
+  font-family: 'Bungee Outline', cursive;
+  position: fixed;
+  font-size: 300px;
+  padding-left: 40px;
+}
+
+.artistCheckImage {
+  width: 200px;
+  height: 200px
+}
+
+.showArtistName {
+  text-align: center;
+  /*font-family: 'Monofett', cursive;*/
+  font-family: 'Monoton', cursive;
+  font-size: 45px
+  /*margin: 0 1.5%;
+  width: 63%;*/
+}
+/*
+.showArtistPhoto {
+  position: relative;
+  left: 25%;
+  right: 25%;
+  border-radius: 25px;
+  /*border-style: double;*/
+  /*height: 100%;*/
+  /*vertical-align: middle;*/
+/*}*/
+
+.showArtistPhoto {
+   position: absolute;
+   top: 40%;
+   left: 50%;
+   width: 400px;
+   height: 400px;
+   margin-top: -200px;
+   margin-left: -200px;
+}
+
 
 .songs {
-  float: right;
-  margin: 0 1.5%;
-  width: 30%;
+  float: center;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  /*margin: 0 1.5%;
+  width: 30%;*/
+}
+
+.signUp {
+  color: black;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: white;
+  padding: 4px 30px;
+}
+
+.signUp:hover {
+  color: white;
+  background-color: black;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+}
+
+.logIn {
+  color: black;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: white;
+  padding: 4px 40px;
+}
+
+.logIn:hover {
+  color: white;
+  background-color: black;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
 }
