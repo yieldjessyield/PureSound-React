@@ -5,6 +5,11 @@ body {
   background-position: center;
 }
 
+#Home {
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
 #login {
   color: white;
   font-size: 20px;
@@ -17,6 +22,7 @@ body {
   -moz-transition-duration: .2s;
   background-color: black;
   padding: 15px 27px;
+  float: right;
 }
 
 #login:hover {
@@ -39,6 +45,7 @@ body {
   -moz-transition-duration: .2s;
   background-color: black;
   padding: 15px 20px;
+  float: right;
 }
 
 #signUp:hover {
@@ -51,16 +58,21 @@ body {
 
 #signUpForm {
   display: none;
+  /*float: right;*/
+  padding-top: 40px;
 }
 
 #loginForm {
   display: none;
+  /*float: right;*/
+  padding-top: 40px;
 }
 
 #logo {
+  padding-top: 500px;
   font-family: 'Bungee Outline', cursive;
   position: fixed;
-  font-size: 300px;
+  font-size: 200px;
   padding-left: 40px;
 }
 
@@ -100,6 +112,11 @@ body {
 
 #songNames {
   text-align: center;
+}
+
+#iFrame {
+  border-radius: 20px;
+  border: none;
 }
 
 /*#span {

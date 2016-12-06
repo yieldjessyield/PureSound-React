@@ -6,7 +6,7 @@ import CreateUser from './CreateUser'
 
 const Home = () => {
   return (
-    <div className="Home">
+    <div id="Home">
       <LoginUser />
       <CreateUser />
       <div id='logo'>simplify</div>

@@ -3,6 +3,12 @@ import { storeSongs } from './ReactActions'
 import { storeArtistRails } from './RailsActions'
 import { browserHistory } from 'react-router'
 
+function celebrityMugshots() {
+  let mugshots = ['http://img.wennermedia.com/620-width/1353444200_amanda-bynes-560.jpg', 'http://f.tqn.com/y/crime/1/S/Z/T/1/justin-bieber.jpg', 'http://photos.posh24.com/p/861776/z/chace_crawford/paris_hilton_mugshot.jpg', 'http://assets.nydailynews.com/polopoly_fs/1.77553.1464283818!/img/httpImage/image.jpg_gen/derivatives/gallery_320/nick-nolte.jpg']
+  let url = mugshots[Math.floor(Math.random()*mugshots.length)]
+  return mugshots.random
+}
+
 // change function names (initial artist)
 export function findArtistByName(artistName){
   return function(dispatch){
@@ -14,9 +20,10 @@ export function findArtistByName(artistName){
         alert('Invalid Artist')
       }
       else if(data.artists.items[0].images[0] === undefined){
+        debugger
         let artistId = data.artists.items[0].id
         let artistName = data.artists.items[0].name
-        let artistUrl = 'http://img.wennermedia.com/620-width/1363883485_lindsay-lohan-mugshot-1.jpg'
+        let artistUrl = celebrityMugshots()
         let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
         dispatch({type: 'INITIAL_ARTIST', payload: artist})
       }

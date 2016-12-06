@@ -52,15 +52,15 @@ class SwipeArtist extends React.Component {
         let songs = this.props.songs.songs
         //
         if(songs){
+          debugger
+          let url = 'https://embed.spotify.com/?uri=spotify:track:' + songs[0].id
           songsBar =
           <div>
           <div id='songNames'>
-            <span>{songs[0].name}   {songs[1].name}   {songs[2].name}</span>
           </div>
           <div id='songsBar'>
-          <a href={songs[0].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[0].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[1].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[1].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[2].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[2].album_art}/></a>
+            <iframe id='iFrame' src={url} width="300" height="80"></iframe>
+
           </div>
           </div>
         }
