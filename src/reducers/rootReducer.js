@@ -42,9 +42,26 @@ function reducerSongs(state={}, action){
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs})
+function reducerYesArtists(state={yesArtists: []}, action) {
+  switch (action.type) {
+    case 'YES_ARTISTS':
+      return {...state, yesArtists: [...state.yesArtists, action.payload]}
+    default:
+      return state
+  }
+}
+
+function reducerInitialArtist(state=[], action) {
+  switch (action.type) {
+    case 'INITIAL_ARTIST':
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
+const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
-
 
 export default rootReducer

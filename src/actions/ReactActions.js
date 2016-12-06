@@ -12,3 +12,9 @@ export function storeSongs(songs){
     dispatch({type: 'SAVE_SONGS', payload:songs})
   }
 }
+
+export function storeYesArtists(artist) {
+  return function(dispatch) {
+    dispatch({type: 'YES_ARTISTS', payload: artist})
+  }
+}
