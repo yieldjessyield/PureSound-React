@@ -44,38 +44,25 @@ class SwipeArtist extends React.Component {
     render() {
         var songsBar;
 
-        // if(this.props.songs.songs){
-        //   songsBar = this.props.songs.songs.map((song)=>{
-        //     return< ShowSongs song={song}/>
-        //   })
-        // }
-        let songs = this.props.songs.songs
-        //
-        if(songs){
-          songsBar =
-          <div>
-          <div id='songNames'>
-            <span>{songs[0].name}   {songs[1].name}   {songs[2].name}</span>
-          </div>
-          <div id='songsBar'>
-          <a href={songs[0].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[0].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[1].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[1].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[2].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[2].album_art}/></a>
-          </div>
-          </div>
+        if(this.props.songs.songs){
+          songsBar = this.props.songs.songs.map((song)=>{
+            return< ShowSongs song={song}/>
+          })
         }
 
         return (
           <div>
               <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)} artist={this.props.swipeArtist}/>
-              <button type="button" onClick={this.handleShowNewArtist.bind(this)}>Next</button>
-              <button type="button" onClick={this.handleLikeArtist.bind(this)}>Like</button>
+              <button id='like_button' type="button" onClick={this.handleShowNewArtist.bind(this)}>Next</button>
+              <button id='next_button' type="button" onClick={this.handleLikeArtist.bind(this)}>Like</button>
               {songsBar}
           </div>
         );
       }
 
 }
+
+// <span>{songs[0].name}   {songs[1].name}   {songs[2].name}</span>
 
 
 

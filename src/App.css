@@ -77,6 +77,14 @@ body {
   text-align: center;
 }
 
+#like_button {
+  float: center;
+}
+
+#next_button {
+  float: center;
+}
+
 #showArtistName {
   font-size: 55px;
   font-family: 'Bungee Outline', cursive;

@@ -4,12 +4,16 @@ import '../App.css';
 export default class ShowSongs extends React.Component {
 
   render() {
+    let url = 'https://embed.spotify.com/?uri=spotify:track:' + this.props.song.id
+
     return(
-      <span id='span'>
-        <h4> {this.props.song.name}</h4>
-        <a href={this.props.song.preview} target="_blank"><img src={this.props.song.album_art}/></a>
-        <a href={this.props.song.preview}><img id='albumPhoto' role='presentation' src={this.props.song.album_art}/></a>
-      </span>
+      <div>
+          <div id='songNames'>
+      </div>
+          <div id='songsBar'>
+            <iframe id='iFrame' src={url} width="300" height="80"></iframe>
+          </div>
+      </div>
     )
   }
 
