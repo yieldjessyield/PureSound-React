@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { storeYesArtists } from '../actions/ReactActions'
 import { bindActionCreators } from 'redux'
+import $ from 'jquery'
+import '../App.css';
+
 
 class CheckArtist extends Component {
 
@@ -12,6 +15,9 @@ class CheckArtist extends Component {
 
   handleNoCheck(){
     event.preventDefault()
+    debugger
+    $('#artistNameCheck').empty()
+    $('#artistCheckImage').attr('src', '')
   }
 
   render(){
@@ -23,7 +29,8 @@ class CheckArtist extends Component {
     }
     return(
       <div>
-        <h5>{artist.artistName} </h5>
+        <h5 id='artistNameCheck'>{artist.artistName}</h5>
+        <img id='artistCheckImage' role='presentation' src={artist.artistUrl}/>
         <h5>Correct?</h5>
         <button onClick={this.handleYesCheck.bind(this)}>Yes</button>
         <button onClick={this.handleNoCheck.bind(this)}>No</button>

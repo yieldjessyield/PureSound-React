@@ -6,8 +6,7 @@ import CheckArtist from './CheckArtist'
 import YesArtists from './YesArtists'
 import { browserHistory } from 'react-router'
 import { storeArtistsRails } from '../actions/RailsActions'
-
-// id, name, image
+import '../App.css';
 
 class InitialArtist extends Component {
   handleArtistCheck(event){
@@ -21,11 +20,11 @@ class InitialArtist extends Component {
       browserHistory.push('/swipeArtist')
     }
       return(
-        <div>
+        <div id='InitialArtist'>
         <h1>Submit Three of Your Favorite Artists</h1>
         <form onSubmit={this.handleArtistCheck.bind(this)}>
           <label type="text">Name:</label>
-          <input type="text"/>
+          <input id='artistSearch' type="text"/>
           <button type="submit">Submit</button>
         </form>
         <CheckArtist />
