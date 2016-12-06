@@ -39,6 +39,7 @@ export function loginUserAction(email, password){
   }
 }
 
+// this is used to store the initial artists from the signup form
 export function storeArtistsRails(artistsData){
   return function(dispatch){
     // Go to rails and set up in artists controller create
@@ -59,7 +60,7 @@ export function storeArtistsRails(artistsData){
   }
 }
 
-// makes sure this works, not tested yet should get triggered by login button
+// triggered by login button, grabs user's liked artists from rails db
 export function getLikedArtistsAction(){
   return function(dispatch){
     $.ajax({url:"http://localhost:3000/liked_artists",
@@ -75,6 +76,24 @@ export function getLikedArtistsAction(){
       // then finds the related artist based on random artist
       dispatch(findRelatedArtist(randArtist.artist_spotify_id))
     })
+  }
+}
+
+// if user likes an artist this saves that artist to db
+export function storeLikedArtistAction(likedArtistData){
+  return function(dispatch){
+    $.ajax({url:"http://localhost:3000/save_liked_artist",
+            type: "POST",
+            data: JSON.stringify({likedArtistData: likedArtistData}),
+     contentType:"application/json; charset=utf-8",
+     headers: {authorization: localStorage.getItem('jwt')}
+    }).done(function(data){
+      // debugger
+      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
+      //should return new array of updated liked artists
+      // should update state with new liked artists
+      // should trigger new swipe artist based on liked artist related artist
+     })
   }
 }
 

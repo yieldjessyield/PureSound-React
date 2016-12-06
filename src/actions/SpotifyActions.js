@@ -52,6 +52,8 @@ export function findInitialArtist(artistName){
 }
 
 // this lil baby is used by both getLikeArtists action and the storeArtistsRails action
+// also used by the like button
+// THIS SETS THE SWIPE ARTIST STATE!!
 export function findRelatedArtist(artistId){
   // event.preventDefault()
   return function(dispatch){
