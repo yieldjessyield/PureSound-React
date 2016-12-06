@@ -13,7 +13,7 @@ export default class ShowSongs extends React.Component {
     return(
       <div>
         <h4> {this.props.song.name}</h4>
-        <a href={this.props.song.preview}><img src={this.props.song.album_art}/></a>
+        <a href={this.props.song.preview} target="_blank"><img src={this.props.song.album_art}/></a>
       </div>
     )
   }
