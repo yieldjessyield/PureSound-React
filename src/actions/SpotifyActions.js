@@ -29,6 +29,7 @@ export function findArtistByName(artistName){
         let artistId = data.artists.items[0].id
         let artistName = data.artists.items[0].name
         let artistUrl = data.artists.items[0].images[0].url
+
         let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
         dispatch({type: 'INITIAL_ARTIST', payload: artist})
       }
@@ -113,19 +114,24 @@ export function findTopTracks(artistId){
         id:data.tracks[0].id,
         name:data.tracks[0].name,
         album_art:data.tracks[0].album.images[1].url,
-        preview:data.tracks[0].preview_url
+        preview:data.tracks[0].preview_url,
+        playStatus:false
       },
       {
         id:data.tracks[1].id,
         name:data.tracks[1].name,
         album_art:data.tracks[1].album.images[1].url,
-        preview:data.tracks[1].preview_url
+        preview:data.tracks[1].preview_url,
+        playStatus:false
+
       },
       {
         id:data.tracks[2].id,
         name:data.tracks[2].name,
         album_art:data.tracks[2].album.images[1].url,
-        preview:data.tracks[2].preview_url
+        preview:data.tracks[2].preview_url,
+        playStatus:false
+        
       }]
       console.log(songs)
       dispatch(storeSongs(songs))

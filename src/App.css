@@ -108,7 +108,7 @@ body {
 #albumPhoto {
   width: 150px;
   height: auto;
-  border-radius: 25px;
+  border-radius: 100px;
 }
 
 #songsBar {

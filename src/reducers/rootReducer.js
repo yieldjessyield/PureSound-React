@@ -73,6 +73,26 @@ function reducerNahArtists(state=[], action) {
   }
 }
 
+// function reducerAudioCommand(state="", action){
+//   switch(action.type) {
+//     case 'PLAY':
+//       return {...state, command: action.payload}
+//     case 'PAUSE':
+//       return {...state, command: action.payload}
+//     default:
+//       return state
+//   }
+// }
+//
+// function reducerAudioSrc(state="", action){
+//   switch(action.type){
+//     case 'CHANGE_SRC':
+//       return {...state, src: action.payload}
+//     default:
+//       return state
+//   }
+// }
+
 
 const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})
 // {user:{} artist{artist_spotifyId}}

@@ -1,4 +1,7 @@
 import {findRelatedArtist} from './SpotifyActions'
+import { audioPlay } from 'redux-audio/actions'
+import { audioPause } from 'redux-audio/actions'
+import { audioSrc } from 'redux-audio/actions'
 // artistInfo comes from SpotifyActions, findArtist function
 export function storeArtist(artistInfo){
   return function(dispatch){
@@ -49,5 +52,22 @@ debugger
 export function removeSongsState(){
   return function(dispatch){
     dispatch({type: 'SAVE_SONGS', payload:[]})
+  }
+}
+
+
+export function playSong(uniqueId, src){
+
+  return function(dispatch){
+    dispatch(audioPlay(uniqueId));
+    dispatch(audioSrc(src));
+  }
+}
+
+export function pauseSong(uniqueId, src){
+
+  return function(dispatch){
+    dispatch(audioPause(uniqueId));
+    dispatch(audioSrc(src));
   }
 }

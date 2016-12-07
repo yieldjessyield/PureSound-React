@@ -5,8 +5,9 @@ import {storeLikedArtistAction} from '../actions/RailsActions'
 import { findTopTracks } from '../actions/SpotifyActions'
 import {getLikedArtistsAction} from '../actions/RailsActions'
 import {connect} from 'react-redux'
-import { removeSongsState } from '../actions/ReactActions'
 import { bindActionCreators } from 'redux'
+import { removeSongsState } from '../actions/ReactActions'
+
 import ShowArtist from './ShowArtist'
 import '../App.css';
 import ShowSongs from './ShowSongs'
@@ -51,7 +52,7 @@ class SwipeArtist extends React.Component {
 
         if(this.props.songs.songs){
           songsBar = this.props.songs.songs.map((song)=>{
-            return< ShowSongs song={song}/>
+            return< ShowSongs songs={this.props.songs.songs} song={song}/>
           })
         }
 
