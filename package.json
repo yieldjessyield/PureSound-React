@@ -6,17 +6,18 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",
     "passport-spotify": "^0.3.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^1.0.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
-    "webpack": "^1.13.3",
-    "react-router": "^2.8.1"
+    "webpack": "^1.13.3"
   },
   "scripts": {
     "start": "react-scripts start",

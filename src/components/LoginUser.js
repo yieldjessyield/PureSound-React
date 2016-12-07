@@ -4,16 +4,20 @@ import { loginSpotUserAction } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../App.css';
+import $ from 'jquery'
+
 
 class LoginUser extends React.Component {
 
   switchVisible(event){
     if (document.getElementById('login')){
       if (document.getElementById('loginForm').style.display === ''){
-        document.getElementById('loginForm').style.display = 'block'
+        document.getElementById('loginForm').style.display = 'block';
+        $('#signUp').hide()
       }
       else {
-        document.getElementById('loginForm').style.display = ''
+        document.getElementById('loginForm').style.display = '';
+        $('#signUp').show()
       }
     }
   }
@@ -30,13 +34,13 @@ class LoginUser extends React.Component {
   render() {
     return(
       <div>
-        <button id='login' onClick={this.switchVisible}>Login</button>
-        <div id='loginForm'>
-        <form onSubmit={this.handleloginUser.bind(this)}>
-          <label type="text">email</label>
-          <input type="text" /><br/>
-          <label type="text">password</label>
-          <input type="password" /><br/>
+        <button id='login' className='button' onClick={this.switchVisible}>Login</button>
+        <div id='loginForm' className='form-group'>
+        <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
+          <label className='col-form-label' type="text">email</label>
+          <input className='form-control' type="text" /><br/>
+          <label className='col-form-label' type="text">password</label>
+          <input className='form-control' type="password" /><br/>
           <button type="submit">Login</button>
         </form>
         </div>

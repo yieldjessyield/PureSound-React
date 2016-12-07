@@ -10,7 +10,7 @@ body {
   padding-right: 30px;
 }
 
-#login {
+.button {
   color: white;
   font-size: 20px;
   font-family: 'Bungee Inline', cursive;
@@ -25,30 +25,7 @@ body {
   float: right;
 }
 
-#login:hover {
-  color: black;
-  background-color: white;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-}
-
-#signUp {
-  color: white;
-  font-size: 20px;
-  font-family: 'Bungee Inline', cursive;
-  text-decoration: none;
-  border: 2px solid black;
-  border-radius: 20px;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-  background-color: black;
-  padding: 15px 20px;
-  float: right;
-}
-
-#signUp:hover {
+.button:hover {
   color: black;
   background-color: white;
   transition-duration: .2s;
@@ -58,14 +35,17 @@ body {
 
 #signUpForm {
   display: none;
-  /*float: right;*/
   padding-top: 40px;
 }
 
 #loginForm {
   display: none;
-  /*float: right;*/
   padding-top: 40px;
+}
+
+.forms {
+  font-size: 20px;
+  font-family: fantasy;
 }
 
 #logo {
@@ -83,6 +63,7 @@ body {
 #artistCheckImage {
   width: 400px;
   height: auto;
+  border-radius: 25px;
 }
 
 #ShowArtist {
@@ -97,13 +78,13 @@ body {
 #showArtistPhoto {
    width: auto;
    height: 400px;
-   border-radius: 20px;
+   border-radius: 25px;
 }
 
 #albumPhoto {
   width: 150px;
   height: auto;
-  border-radius: 100px;
+  border-radius: 25px;
 }
 
 #songsBar {
@@ -115,13 +96,19 @@ body {
 }
 
 #iFrame {
-  border-radius: 20px;
+  border-radius: 25px;
   border: none;
 }
 
-/*#span {
-
-}*/
+#yesArtistsPhoto {
+  display: inline;
+  margin: 0 auto;
+  width: 100;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 25px;
+}
 
 .songs {
   float: center;
