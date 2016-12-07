@@ -12,6 +12,12 @@ export function storeSongs(songs){
   }
 }
 
+export function storeNoArtist() {
+  return function(dispatch) {
+    dispatch({type: 'INITIAL_ARTIST', payload: ''})
+  }
+}
+
 export function storeYesArtists(artist) {
   return function(dispatch) {
     dispatch({type: 'YES_ARTISTS', payload: artist})

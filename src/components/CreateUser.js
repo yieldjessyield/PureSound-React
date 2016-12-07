@@ -3,16 +3,20 @@ import { createUserAction } from '../actions/RailsActions'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../App.css';
+import $ from 'jquery'
+
 
 class CreateUser extends React.Component {
 
   switchVisible(event){
     if (document.getElementById('signUp')){
       if (document.getElementById('signUpForm').style.display === ''){
-        document.getElementById('signUpForm').style.display = 'block'
+        document.getElementById('signUpForm').style.display = 'block';
+        $('#login').hide()
       }
       else {
-        document.getElementById('signUpForm').style.display = ''
+        document.getElementById('signUpForm').style.display = '';
+        $('#login').show()
       }
     }
   }
@@ -29,16 +33,16 @@ class CreateUser extends React.Component {
   render() {
     return(
       <div>
-        <button id='signUp' onClick={this.switchVisible}>Sign Up Form</button>
+        <button id='signUp' className='button' onClick={this.switchVisible}>Sign Up</button>
         <div id='signUpForm'>
-          <form onSubmit={this.handleCreateUser.bind(this)}>
-            <label type="text">email</label>
-            <input type="text" /><br/>
-            <label type="text">password</label>
-            <input type="password" /><br/>
-            <label type="text">phone number</label>
-            <input type="tel" /><br/>
-            <button type="submit">Create User</button>
+          <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
+            <label className='col-form-label' type="text">email</label>
+            <input className='form-control' type="text" /><br/>
+            <label className='col-form-label' type="text">password</label>
+            <input className='form-control' type="password" /><br/>
+            <label className='col-form-label' type="text">phone number</label>
+            <input className='form-control' type="tel" /><br/>
+            <button className='formButton' type="submit">Create User</button>
           </form>
         </div>
       </div>
