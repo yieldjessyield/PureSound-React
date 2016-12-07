@@ -5,6 +5,7 @@ import { getNewSwipeFromLikedAction } from '../actions/ReactActions'
 import {storeLikedArtistAction} from '../actions/RailsActions'
 import { findTopTracks } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
+import { removeSongsState } from '../actions/ReactActions'
 import { bindActionCreators } from 'redux'
 import ShowArtist from './ShowArtist'
 import ShowSongs from './ShowSongs'
@@ -29,7 +30,11 @@ class SwipeArtist extends React.Component {
     // $('#songsBar').empty()
     //maybe don't use this here... should get artists based on a ReactActions action that
     // pulls from current state
+
     this.props.getNewSwipeFromLikedAction(this.props.likedArtists, this.props.swipeArtist, this.props.nahArtists)
+  // check what this is below
+    this.props.getLikedArtistsAction()
+    this.props.removeSongsState()
   }
 
   handleLikeArtist(event){
@@ -37,44 +42,34 @@ class SwipeArtist extends React.Component {
     // should create new swipe artist based on likedartist related artist
     // should also save to rails db and update liked artist state
     this.props.storeLikedArtistAction(this.props.swipeArtist)
+
     this.props.findRelatedArtist(this.props.swipeArtist.spotify_id, this.props.nahArtists)
+    this.props.removeSongsState()
+
   }
   // <h4>{songs[2].name}</h4>
     render() {
         var songsBar;
 
-        // if(this.props.songs.songs){
-        //   songsBar = this.props.songs.songs.map((song)=>{
-        //     return< ShowSongs song={song}/>
-        //   })
-        // }
-        let songs = this.props.songs.songs
-        //
-        if(songs){
-          songsBar =
-          <div>
-          <div id='songNames'>
-            <span>{songs[0].name}   {songs[1].name}   {songs[2].name}</span>
-          </div>
-          <div id='songsBar'>
-          <a href={songs[0].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[0].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[1].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[1].album_art}/></a>&nbsp;&nbsp;&nbsp;
-          <a href={songs[2].preview} target='_blank'><img id='albumPhoto' role='presentation' src={songs[2].album_art}/></a>
-          </div>
-          </div>
+        if(this.props.songs.songs){
+          songsBar = this.props.songs.songs.map((song)=>{
+            return< ShowSongs song={song}/>
+          })
         }
 
         return (
           <div>
               <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)} artist={this.props.swipeArtist}/>
-              <button type="button" onClick={this.handleNahArtist.bind(this)}>Nah</button>
-              <button type="button" onClick={this.handleLikeArtist.bind(this)}>Like</button>
+              <button id='like_button' type="button" onClick={this.handleNahArtist.bind(this)}>Nah</button>
+              <button id='next_button' type="button" onClick={this.handleLikeArtist.bind(this)}>Like</button>
               {songsBar}
           </div>
         );
       }
 
 }
+
+// <span>{songs[0].name}   {songs[1].name}   {songs[2].name}</span>
 
 
 
@@ -83,7 +78,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({findTopTracks:findTopTracks, getNewSwipeFromLikedAction:getNewSwipeFromLikedAction, storeLikedArtistAction:storeLikedArtistAction, findRelatedArtist: findRelatedArtist }, dispatch)
+  return bindActionCreators({removeSongsState:removeSongsState, findTopTracks:findTopTracks, getLikedArtistsAction:getLikedArtistsAction, getNewSwipeFromLikedAction:getNewSwipeFromLikedAction, storeLikedArtistAction:storeLikedArtistAction, findRelatedArtist: findRelatedArtist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SwipeArtist)

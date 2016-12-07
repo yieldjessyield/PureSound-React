@@ -101,6 +101,9 @@ export function findTopTracks(artistId){
      type:'GET'
     }).done(function(data){
       //can refactor later
+      // 
+      // let songs = data.tracks[0..2].map(function(song)
+      //               return )
       let songs = [{
         id:data.tracks[0].id,
         name:data.tracks[0].name,

@@ -37,6 +37,11 @@ debugger
       // and sets the state
       dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
       dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
+  }
+}
 
+export function removeSongsState(){
+  return function(dispatch){
+    dispatch({type: 'SAVE_SONGS', payload:[]})
   }
 }
