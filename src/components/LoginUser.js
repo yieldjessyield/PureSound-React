@@ -30,7 +30,7 @@ class LoginUser extends React.Component {
   render() {
     return(
       <div>
-        <button id='login' onClick={this.switchVisible}>Login</button>
+        <button id='login' onClick={this.switchVisible}>Login Form</button>
         <div id='loginForm'>
         <form onSubmit={this.handleloginUser.bind(this)}>
           <label type="text">email</label>

@@ -58,23 +58,38 @@ export function findInitialArtist(artistName){
 // this lil baby is used by both getLikeArtists action and the storeArtistsRails action
 // also used by the like button
 // THIS SETS THE SWIPE ARTIST STATE!!
-export function findRelatedArtist(artistId){
+export function findRelatedArtist(artistId, nahArtists){
   // event.preventDefault()
+
+    function randomizer(artists){
+      var relatedArtists = artists.slice(0,15)
+      var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)]
+      var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
+      return swipeArtist
+    }
+
   return function(dispatch){
     $.ajax({
      url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
-      // this needs to go to root reducter and update state with shortened related artists array
-      var relatedArtists = data.artists.slice(0,10)
-      //grab only one artist form this and dispatch SET_SWIPE_ARTIST
-      var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
-      //grab only the data we want from randArtist and organize under swipeArtist
-      // debugger
-      var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
-      // set swipeArtist state with dispatch
-      dispatch({type: 'SET_SWIPE_ARTIST', payload: swipeArtist})
-  })
+
+      var swiper = randomizer(data.artists)
+      // // this needs to go to root reducter and update state with shortened related artists array
+      // var relatedArtists = data.artists.slice(0,10)
+      // //grab only one artist form this and dispatch SET_SWIPE_ARTIST
+      // var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)];
+      // //grab only the data we want from randArtist and organize under swipeArtist
+      // // debugger
+      // var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
+      // // set swipeArtist state with dispatch, checks against the nah artists in state
+      while (nahArtists.includes(swiper.spotify_id)){
+        swiper = randomizer(data.artists)
+      }
+
+      dispatch({type: 'SET_SWIPE_ARTIST', payload: swiper})
+
+    })
   }
 }
 

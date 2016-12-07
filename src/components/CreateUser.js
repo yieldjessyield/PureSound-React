@@ -29,7 +29,7 @@ class CreateUser extends React.Component {
   render() {
     return(
       <div>
-        <button id='signUp' onClick={this.switchVisible}>Sign Up</button>
+        <button id='signUp' onClick={this.switchVisible}>Sign Up Form</button>
         <div id='signUpForm'>
           <form onSubmit={this.handleCreateUser.bind(this)}>
             <label type="text">email</label>

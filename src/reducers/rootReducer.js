@@ -60,7 +60,20 @@ function reducerInitialArtist(state=[], action) {
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists})
+
+function reducerNahArtists(state=[], action) {
+  switch (action.type) {
+    case 'ADD_TO_NAH':
+      return [...state, action.payload]
+    case 'CLEAR_NAH':
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
+
+const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
 

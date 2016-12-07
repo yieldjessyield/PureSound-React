@@ -50,12 +50,12 @@ export function storeArtistsRails(artistsData){
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      debugger
       // this will save likedartists to state
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      let nahArtists = []
       let artists = data.liked_artists
       var randArtist = artists[Math.floor(Math.random()*artists.length)];
-      dispatch(findRelatedArtist(randArtist.artist_spotify_id))
+      dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
     })
   }
 }
@@ -71,10 +71,11 @@ export function getLikedArtistsAction(){
       // debugger
       // saves the user's liked artists to the state
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      let nahArtists = []
       let artists = data.liked_artists
       var randArtist = artists[Math.floor(Math.random()*artists.length)];
       // then finds the related artist based on random artist
-      dispatch(findRelatedArtist(randArtist.artist_spotify_id))
+      dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
     })
   }
 }
