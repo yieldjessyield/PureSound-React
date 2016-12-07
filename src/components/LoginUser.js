@@ -33,7 +33,7 @@ class LoginUser extends React.Component {
   render() {
     return(
       <div>
-        <button id='login' className='button' onClick={this.switchVisible}>Login</button>
+        <button id='login' onClick={this.switchVisible}>Login</button>
         <div id='loginForm' className='form-group'>
         <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
           <label className='col-form-label' type="text">email</label>
