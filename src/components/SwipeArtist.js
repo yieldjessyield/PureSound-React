@@ -1,5 +1,4 @@
 import React from 'react';
-import { findArtistById } from '../actions/SpotifyActions'
 import {findRelatedArtist} from '../actions/SpotifyActions'
 import { getLikedArtistsAction } from '../actions/RailsActions'
 import {storeLikedArtistAction} from '../actions/RailsActions'
@@ -7,10 +6,7 @@ import { findTopTracks } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ShowArtist from './ShowArtist'
-import ShowSongs from './ShowSongs'
 import '../App.css';
-import $ from 'jquery'
-
 
 class SwipeArtist extends React.Component {
 

@@ -3,7 +3,6 @@ import { Route, IndexRoute } from 'react-router'
 import App from './components/App'
 import Home from './components/Home'
 import SearchArtist from './components/SearchArtist'
-import SubmitArtists from './components/SubmitArtists'
 import SwipeArtist from './components/SwipeArtist'
 import InitialArtist from './components/InitialArtist'
 
@@ -12,7 +11,6 @@ const Routes = (
     <IndexRoute component={Home} />
     <Route path="/artists" component={InitialArtist} />
     <Route path="/search" component={SearchArtist} />
-    <Route path="/submit" component={SubmitArtists} />
     <Route path="/swipeArtist" component={SwipeArtist} />
   </Route>
 )

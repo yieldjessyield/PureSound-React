@@ -4,9 +4,6 @@ import { storeYesArtists, storeNoArtist } from '../actions/ReactActions'
 import { bindActionCreators } from 'redux'
 import $ from 'jquery'
 import '../App.css';
-import { browserHistory } from 'react-router'
-import InitialArtist from './InitialArtist'
-
 
 class CheckArtist extends Component {
 
@@ -27,7 +24,7 @@ class CheckArtist extends Component {
   render(){
     let artist = this.props.initialArtist;
     let checkArtistDiv;
-    if(artist.length != 0) {
+    if(artist.length !== 0) {
       checkArtistDiv =
         <div id='checkArtistDivId'>
           <h5 id='artistNameCheck'>{artist.artistName}</h5>

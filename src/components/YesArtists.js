@@ -9,8 +9,7 @@ class YesArtists extends React.Component {
     let yesArtistsDiv;
     let selectedArtists;
 
-    if(artists.length != 0){
-      debugger
+    if(artists.length !== 0){
       selectedArtists = this.props.yesArtists.map(function(artist) {
         return (
           <span>

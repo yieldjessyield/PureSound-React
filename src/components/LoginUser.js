@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux'
 import '../App.css';
 import $ from 'jquery'
 
-
 class LoginUser extends React.Component {
 
   switchVisible(event){
