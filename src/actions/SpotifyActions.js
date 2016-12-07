@@ -14,18 +14,18 @@ export function findArtistByName(artistName){
       method:'GET',
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
-      if (data.artists.items[0] === undefined){
+      if (data.artists.items[0] === undefined || data.artists.items[0].images[0] === undefined){
         alert('Invalid Artist')
       }
-      else if(data.artists.items[0].images[0] === undefined){
-        alert('No photo found, but enjoy this mugshot')
-        let artistId = data.artists.items[0].id
-        let artistName = data.artists.items[0].name
-        let artistUrl = celebrityMugshots()
-        let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
-        dispatch({type: 'INITIAL_ARTIST', payload: artist})
-      }
-      else{
+      // else if(data.artists.items[0].images[0] === undefined){
+      //   alert('No photo found, but enjoy this mugshot')
+      //   let artistId = data.artists.items[0].id
+      //   let artistName = data.artists.items[0].name
+      //   let artistUrl = celebrityMugshots()
+      //   let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
+      //   dispatch({type: 'INITIAL_ARTIST', payload: artist})
+      // }
+      else {
         let artistId = data.artists.items[0].id
         let artistName = data.artists.items[0].name
         let artistUrl = data.artists.items[0].images[0].url
@@ -106,7 +106,7 @@ export function findTopTracks(artistId){
      type:'GET'
     }).done(function(data){
       //can refactor later
-      // 
+      //
       // let songs = data.tracks[0..2].map(function(song)
       //               return )
       let songs = [{
