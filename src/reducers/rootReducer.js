@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { audioReducer } from 'redux-audio'
 
 function reducerUser(state = {}, action){
   switch (action.type){
@@ -73,7 +74,7 @@ function reducerNahArtists(state=[], action) {
 }
 
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists})
+const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})
 // {user:{} artist{artist_spotifyId}}
 // include later songs: reducerSongs, and artist: reducerArtist
 

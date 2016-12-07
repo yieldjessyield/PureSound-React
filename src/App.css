@@ -22,7 +22,6 @@ body {
   -moz-transition-duration: .2s;
   background-color: black;
   padding: 15px 27px;
-  float: right;
 }
 
 .button:hover {
@@ -41,11 +40,6 @@ body {
 #loginForm {
   display: none;
   padding-top: 40px;
-}
-
-.forms {
-  font-size: 20px;
-  font-family: fantasy;
 }
 
 #logo {

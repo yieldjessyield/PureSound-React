@@ -23,3 +23,5 @@ else
   <a href={this.props.song.preview} target="_blank"><img src={this.props.song.album_art}/></a>
   <a href={this.props.song.preview}><img id='albumPhoto' role='presentation' src={this.props.song.album_art}/></a>
 </span>
+
+      <a href={this.props.song.preview} target="_blank"><img src={this.props.song.album_art}/></a>
