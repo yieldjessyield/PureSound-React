@@ -23,7 +23,7 @@ export function storeYesArtists(artist) {
 export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtists){
   return function(dispatch){
 debugger
-      if (stateNahArtists.length > 5){
+      if (stateNahArtists.length > 5 || stateNahArtists === undefined){
         var nahArtists = []
         dispatch({type: 'CLEAR_NAH', payload: nahArtists})
       }else{
