@@ -10,7 +10,7 @@ body {
   padding-right: 30px;
 }
 
-.button {
+#signUp {
   color: white;
   font-size: 20px;
   font-family: 'Bungee Inline', cursive;
@@ -22,10 +22,31 @@ body {
   -moz-transition-duration: .2s;
   background-color: black;
   padding: 15px 27px;
-  float: right;
 }
 
-.button:hover {
+#signUp:hover {
+  color: black;
+  background-color: white;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+}
+
+#login {
+  color: white;
+  font-size: 20px;
+  font-family: 'Bungee Inline', cursive;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: black;
+  padding: 15px 27px;
+}
+
+#login:hover {
   color: black;
   background-color: white;
   transition-duration: .2s;
@@ -41,11 +62,6 @@ body {
 #loginForm {
   display: none;
   padding-top: 40px;
-}
-
-.forms {
-  font-size: 20px;
-  font-family: fantasy;
 }
 
 #logo {
