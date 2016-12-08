@@ -10,9 +10,9 @@ class ShowUserProfile extends React.Component {
     this.state = {email: this.props.user.userEmail, password: this.props.user.userPassword, phoneNumber: this.props.user.userPhoneNumber }
   }
 
-  handleUserEdit(){
+  handleUserEdit(event){
     event.preventDefault()
-    debugger
+
     this.props.submitUserUpdate(this.state.email, this.state.password, this.state.phoneNumber)
   }
 

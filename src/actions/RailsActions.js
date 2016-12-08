@@ -31,7 +31,6 @@ export function loginUserAction(email, password){
       // fix this dispatch it's not working yet
       dispatch({type: 'LOGIN_USER', payload: data})
       dispatch(getLikedArtistsAction())
-      debugger
       browserHistory.push('/swipeArtist')
       // login with this email it's the first user: desmond.farrell@ryan.biz
       //ben's email is this anais@jaskolskinitzsche.co
@@ -101,17 +100,17 @@ export function storeLikedArtistAction(likedArtistData){
 
 export function submitUserUpdate(email, password, phoneNumber){
   //figure out what data is coming in
-  debugger
+
   return function(dispatch){
     $.ajax({url:"http://localhost:3000/update_user_info",
             type: "POST",
-            data: JSON.stringify({user: {email: email, password_digest: password, phone_number: phoneNumber}}),
+            data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",
      dataType:"json",
      headers: {authorization: localStorage.getItem('jwt')}
   }).done(function(data){
     dispatch({type: 'UPDATE_USER', payload: data})
-    browserHistory.push('/swipeArtist')
+      // browserHistory.push('/swipeArtist')
     })
   }
 }

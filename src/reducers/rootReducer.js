@@ -9,7 +9,6 @@ function reducerUser(state = {}, action){
       return Object.assign({}, action.payload)
     //maybe save user id and current user t or false
     case "UPDATE_USER":
-    debugger
       return Object.assign({}, action.payload)
     default:
       return state
@@ -78,27 +77,6 @@ function reducerNahArtists(state=[], action) {
       return state
   }
 }
-
-// function reducerAudioCommand(state="", action){
-//   switch(action.type) {
-//     case 'PLAY':
-//       return {...state, command: action.payload}
-//     case 'PAUSE':
-//       return {...state, command: action.payload}
-//     default:
-//       return state
-//   }
-// }
-//
-// function reducerAudioSrc(state="", action){
-//   switch(action.type){
-//     case 'CHANGE_SRC':
-//       return {...state, src: action.payload}
-//     default:
-//       return state
-//   }
-// }
-
 
 const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})
 // {user:{} artist{artist_spotifyId}}
