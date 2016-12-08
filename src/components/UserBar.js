@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import {submitUserUpdate} from '../actions/RailsActions'
 import {connect} from 'react-redux'
 
-class ShowUserProfile extends React.Component {
+class UserBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {email: this.props.user.userEmail, password: this.props.user.userPassword, phoneNumber: this.props.user.userPhoneNumber }
@@ -51,5 +51,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({submitUserUpdate: submitUserUpdate }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(ShowUserProfile)
-
+export default connect(null, mapDispatchToProps)(UserBar)
