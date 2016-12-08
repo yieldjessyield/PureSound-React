@@ -98,5 +98,22 @@ export function storeLikedArtistAction(likedArtistData){
   }
 }
 
+export function submitUserUpdate(email, password, phoneNumber){
+  //figure out what data is coming in
+  debugger
+  return function(dispatch){
+    $.ajax({url:"http://localhost:3000/update_user_info",
+            type: "POST",
+            data: JSON.stringify({user: {email: email, password_digest: password, phone_number: phoneNumber}}),
+     contentType:"application/json; charset=utf-8",
+     dataType:"json",
+     headers: {authorization: localStorage.getItem('jwt')}
+  }).done(function(data){
+    dispatch({type: 'UPDATE_USER', payload: data})
+    browserHistory.push('/swipeArtist')
+    })
+  }
+}
+
 
 // need to create a storeSwipeArtist action that is called when swiped

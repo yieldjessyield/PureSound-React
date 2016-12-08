@@ -5,11 +5,12 @@ function reducerUser(state = {}, action){
   switch (action.type){
     case "NEW_USER":
     // debugger
-    console.log(action.payload)
-    //maybe should be id here?
     case "LOGIN_USER":
-      return action.payload
+      return Object.assign({}, action.payload)
     //maybe save user id and current user t or false
+    case "UPDATE_USER":
+    debugger
+      return Object.assign({}, action.payload)
     default:
       return state
   }
