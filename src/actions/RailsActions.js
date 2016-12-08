@@ -31,6 +31,7 @@ export function loginUserAction(email, password){
       // fix this dispatch it's not working yet
       dispatch({type: 'LOGIN_USER', payload: data})
       dispatch(getLikedArtistsAction())
+      debugger
       browserHistory.push('/swipeArtist')
       // login with this email it's the first user: desmond.farrell@ryan.biz
       //ben's email is this anais@jaskolskinitzsche.co

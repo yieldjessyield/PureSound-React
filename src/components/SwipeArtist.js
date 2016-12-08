@@ -68,11 +68,10 @@ class SwipeArtist extends React.Component {
     this.props.removeSongsState()
   }
 
-  handleUserProfile(event){
-    event.preventDefault()
-    this.props.userInfo
-  }
-
+  // handleUserProfile(event){
+  //   event.preventDefault()
+  //   this.props.userInfo
+  // }
 
   render() {
     var songsBar;
@@ -86,6 +85,7 @@ class SwipeArtist extends React.Component {
 // listening for every keydown, and checking the key code.
     return (
       <div id='divFocus' ref='divFocus' tabIndex="0" onKeyDown={this.handleOnKeyDown.bind(this)} >
+        <ShowUserProfile user={this.props.user}/>
         <ShowArtist artist={this.props.swipeArtist}/>
         {songsBar}
       </div>
@@ -94,8 +94,7 @@ class SwipeArtist extends React.Component {
 }
 
 function mapStateToProps(state){
-  return {songs: state.songs, swipeArtist: state.swipeArtist, likedArtists:state.likedArtists, nahArtists: state.nahArtists, userInfo: state.user}
-
+  return {songs: state.songs, swipeArtist: state.swipeArtist, likedArtists: state.likedArtists, nahArtists: state.nahArtists, user: state.user}
 }
 
 function mapDispatchToProps(dispatch){
