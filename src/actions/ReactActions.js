@@ -31,21 +31,21 @@ export function storeYesArtists(artist) {
 // make sure nahArtists is coming in as an array from state
 export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtists){
   return function(dispatch){
-debugger
-      if (stateNahArtists === undefined || stateNahArtists.length > 20){
-        var nahArtists = []
-        dispatch({type: 'CLEAR_NAH', payload: nahArtists})
-      }else{
-debugger
+    if (stateNahArtists === undefined || stateNahArtists.length > 20){
+      var nahArtists = []
+      dispatch({type: 'CLEAR_NAH', payload: nahArtists})
+    }else{
        var nahArtists = stateNahArtists
-      }
-
-      let artists = likedState.liked_artists
-      var randArtist = artists[Math.floor(Math.random()*artists.length)];
-      // then finds the related artist based on random artist
-      // and sets the state
-      dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
-      dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
+    }
+    debugger
+    let artists = likedState.liked_artists
+    debugger
+    var randArtist = artists[Math.floor(Math.random() * artists.length)];
+    // var randArtist = artists[Math.floor(Math.random()*likedState.liked_artists.length)];
+    // then finds the related artist based on random artist
+    // and sets the state
+    dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
+    dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
   }
 }
 

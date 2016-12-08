@@ -46,11 +46,10 @@ class ShowSongs extends React.Component {
     let url = 'https://embed.spotify.com/?uri=spotify:track:' + this.props.song.id
 
     return(
-      <div id='songsBar' >
-        <h4>{this.props.song.name}</h4>
-        <img id='albumPhoto'role='presentation' src={this.props.song.album_art} onClick={this.handlePlayPauseSong.bind(this)}/>
+      <span id='songsBar' className='showSongsClass' >
+        <img id='albumPhoto' role='presentation' src={this.props.song.album_art} onClick={this.handlePlayPauseSong.bind(this)}/>
         <Audio src={this.props.song.preview} uniqueId={this.props.song.id} />
-      </div>
+      </span>
     )
   }
 
