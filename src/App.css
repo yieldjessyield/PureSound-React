@@ -146,11 +146,36 @@ body {
   text-align: center;
 }
 
-.songs {
-  float: center;
-  margin: auto;
+.container {
+  background-color: red;
+  overflow: hidden;
+  width: 200px;
+}
+
+.inner {
+  overflow: hidden;
+  width: 2000px;
+}
+
+.child {
+  float: left;
+  background-color: blue;
   width: 50px;
   height: 50px;
-  /*margin: 0 1.5%;
-  width: 30%;*/
+}
+
+.navBar {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+#coverFlowPhoto {
+  border-radius: 0px;
+}
+
+.coverflow_figure_3bk_C {
+  max-height: 15px
+}
+
+.coverflow_text_39hqd {
+  max-height: 1px
 }

@@ -9,22 +9,46 @@ import ShowArtist from './ShowArtist'
 import '../App.css';
 import ShowSongs from './ShowSongs'
 import ReactDOM from 'react-dom';
+import ArtistsBar from './ArtistsBar'
+import UserBar from './UserBar'
+import HelpBar from './HelpBar'
 
 class SwipeArtist extends React.Component {
 
   constructor(){
     super()
+    this.state = {
+      artistsBar: false,
+      userBar: false,
+      helpBar: false
+    }
 
     this.handleNahArtist = this.handleNahArtist.bind(this)
     this.handleLikeArtist = this.handleLikeArtist.bind(this)
     this.handleShowSongs = this.handleShowSongs.bind(this)
+    this.artistsBarClick = this.artistsBarClick.bind(this)
+    this.userBarClick = this.userBarClick.bind(this)
+    this.helpBarClick = this.helpBarClick.bind(this)
   }
 
   componentDidMount(){
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
+  artistsBarClick(){
+    this.setState({artistsBar: !this.state.artistsBar})
+  }
+
+  userBarClick(){
+    this.setState({userBar: !this.state.userBar})
+  }
+
+  helpBarClick(){
+    this.setState({helpBar: !this.state.helpBar})
+  }
+
   handleOnKeyDown(event){
+    event.preventDefault()
     if (event.keyCode === 37){
       // left
       this.handleNahArtist()
@@ -66,7 +90,6 @@ class SwipeArtist extends React.Component {
     this.props.removeSongsState()
   }
 
-
   render() {
     var songsBar;
 
@@ -78,9 +101,19 @@ class SwipeArtist extends React.Component {
 // add a focus event, perhaps it has to be on input or checkbox
 // listening for every keydown, and checking the key code.
     return (
-      <div id='divFocus' ref='divFocus' tabIndex="0" onKeyDown={this.handleOnKeyDown.bind(this)} >
-        <ShowArtist artist={this.props.swipeArtist}/>
-        {songsBar}
+      <div>
+        <nav id='navBar'>
+          <button onClick={this.artistsBarClick}>coverFlow</button>
+          <button onClick={this.userBarClick}>user</button>
+          <button onClick={this.helpBarClick}>help</button>
+          {this.state.artistsBar === true ? <ArtistsBar /> : null}
+          {this.state.userBar === true ? <UserBar /> : null}
+          {this.state.helpBar === true ? <HelpBar /> : null}
+        </nav>
+        <div id='divFocus' ref='divFocus' tabIndex="0" onKeyDown={this.handleOnKeyDown.bind(this)} >
+          <ShowArtist artist={this.props.swipeArtist}/>
+          {songsBar}
+        </div>
       </div>
     );
   }
