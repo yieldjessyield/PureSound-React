@@ -5,6 +5,10 @@ body {
   background-position: center;
 }
 
+#divFocus {
+  outline: none;
+}
+
 #Home {
   padding-top: 30px;
   padding-right: 30px;
@@ -65,11 +69,13 @@ body {
 }
 
 #logo {
-  padding-top: 500px;
+  position:absolute;
+  bottom:0;
+  /*padding-top: 500px;*/
   font-family: 'Bungee Outline', cursive;
-  position: fixed;
+  /*position: fixed;*/
   font-size: 200px;
-  padding-left: 40px;
+  /*padding-left: 40px;*/
 }
 
 #InitialArtist {
