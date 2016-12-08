@@ -50,13 +50,17 @@ class SwipeArtist extends React.Component {
     render() {
         var songsBar;
 
-        if(this.props.songs.songs){
+         if(this.props.songs.songs){
           songsBar = this.props.songs.songs.map((song)=>{
             return< ShowSongs songs={this.props.songs.songs} song={song}/>
           })
         }
 
+
+
+
         return (
+
           <div>
               <ShowArtist handleShowSongs={this.handleShowSongs.bind(this)} artist={this.props.swipeArtist}/>
               <button id='like_button' type="button" onClick={this.handleNahArtist.bind(this)}>Nah</button>

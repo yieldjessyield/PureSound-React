@@ -134,11 +134,20 @@ body {
   border-radius: 100px;
 }
 
-.songs {
-  float: center;
-  margin: auto;
+.container {
+  background-color: red;
+  overflow: hidden;
+  width: 200px;
+}
+
+.inner {
+  overflow: hidden;
+  width: 2000px;
+}
+
+.child {
+  float: left;
+  background-color: blue;
   width: 50px;
   height: 50px;
-  /*margin: 0 1.5%;
-  width: 30%;*/
 }
