@@ -12,6 +12,7 @@ import ReactDOM from 'react-dom';
 import ArtistsBar from './ArtistsBar'
 import UserBar from './UserBar'
 import HelpBar from './HelpBar'
+import $ from 'jquery'
 
 class SwipeArtist extends React.Component {
 
