@@ -19,7 +19,7 @@ function reducerUser(state = {}, action){
 function reducerLikedArtists(state= [], action){
   switch (action.type){
     case "SAVE_LIKED_ARTISTS":
-      return state = action.payload
+      return {...state, ...action.payload}
     default:
       return state
   }
@@ -39,8 +39,13 @@ function reducerSongs(state={}, action){
   switch (action.type){
     case "SAVE_SONGS":
       return {...state, songs: action.payload}
+    case "PLAY":
+      return {...state, songs:{playStatus: action.payload}}
+    case "PAUSE":
+      return {...state, songs:{playStatus: action.payload}}
     default:
       return state
+
   }
 }
 
@@ -73,6 +78,26 @@ function reducerNahArtists(state=[], action) {
       return state
   }
 }
+
+// function reducerAudioCommand(state="", action){
+//   switch(action.type) {
+//     case 'PLAY':
+//       return {...state, command: action.payload}
+//     case 'PAUSE':
+//       return {...state, command: action.payload}
+//     default:
+//       return state
+//   }
+// }
+//
+// function reducerAudioSrc(state="", action){
+//   switch(action.type){
+//     case 'CHANGE_SRC':
+//       return {...state, src: action.payload}
+//     default:
+//       return state
+//   }
+// }
 
 
 const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})

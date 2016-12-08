@@ -37,11 +37,11 @@ class CreateUser extends React.Component {
         <div id='signUpForm'>
           <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
             <label className='col-form-label' type="text">email</label>
-            <input className='form-control' type="text" /><br/>
+            <input className='form-control' type="text" required/><br/>
             <label className='col-form-label' type="text">password</label>
-            <input className='form-control' type="password" /><br/>
+            <input className='form-control' type="password" required/><br/>
             <label className='col-form-label' type="text">phone number</label>
-            <input className='form-control' type="tel" /><br/>
+            <input className='form-control' type="tel" required/><br/>
             <button className='formButton' type="submit">Create User</button>
           </form>
         </div>

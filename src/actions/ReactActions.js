@@ -1,4 +1,7 @@
 import {findRelatedArtist} from './SpotifyActions'
+import { audioPlay } from 'redux-audio/actions'
+import { audioPause } from 'redux-audio/actions'
+import { audioSrc } from 'redux-audio/actions'
 // artistInfo comes from SpotifyActions, findArtist function
 export function storeArtist(artistInfo){
   return function(dispatch){
@@ -28,26 +31,48 @@ export function storeYesArtists(artist) {
 // make sure nahArtists is coming in as an array from state
 export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtists){
   return function(dispatch){
-debugger
-      if (stateNahArtists === undefined || stateNahArtists.length > 20){
-        var nahArtists = []
-        dispatch({type: 'CLEAR_NAH', payload: nahArtists})
-      }else{
-debugger
+    if (stateNahArtists === undefined || stateNahArtists.length > 20){
+      var nahArtists = []
+      dispatch({type: 'CLEAR_NAH', payload: nahArtists})
+    }else{
        var nahArtists = stateNahArtists
-      }
-
-      let artists = likedState.liked_artists
-      var randArtist = artists[Math.floor(Math.random()*artists.length)];
-      // then finds the related artist based on random artist
-      // and sets the state
-      dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
-      dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
+    }
+    debugger
+    let artists = likedState.liked_artists
+    debugger
+    var randArtist = artists[Math.floor(Math.random() * artists.length)];
+    // var randArtist = artists[Math.floor(Math.random()*likedState.liked_artists.length)];
+    // then finds the related artist based on random artist
+    // and sets the state
+    dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
+    dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
   }
 }
 
 export function removeSongsState(){
   return function(dispatch){
     dispatch({type: 'SAVE_SONGS', payload:[]})
+  }
+}
+
+
+export function playSong(uniqueId, src, song){
+
+  return function(dispatch){
+    song.playStatus = true
+
+    dispatch(audioPlay(uniqueId));
+    dispatch(audioSrc(src));
+    dispatch({type: 'PLAY', payload: song})
+  }
+}
+
+export function pauseSong(uniqueId, src, song){
+
+  return function(dispatch){
+    song.playStatus = false
+    dispatch(audioPause(uniqueId));
+    dispatch(audioSrc(src));
+    dispatch({type: 'PAUSE', payload: song})
   }
 }
