@@ -9,26 +9,31 @@ class ShowSongs extends React.Component {
 
 
   handlePlayPauseSong(event){
-
     var songPlaying = this.props.songs.filter(function(song){
-                        song.playStatus === true
+      return song.playStatus === true
     })
 
-    if(songPlaying){
+    var songs = this.props.songs
+
+    var songToPlay = this.props.song
+
+    if(songPlaying && songPlaying.length>0){
       var songPlayingId = songPlaying.id
       var songPlayingUrl = songPlaying.preview
       var uniqueId = this.props.song.id
       var src = this.props.song.preview
 
       if(this.props.song.playStatus === false){
-        this.props.playSong(uniqueId,src)
-        this.props.pauseSong(songPlayingId,songPlayingUrl)
+        this.props.playSong(uniqueId,src,songToPlay, songs)
+        this.props.pauseSong(songPlayingId,songPlayingUrl,songPlaying, songs)
       }
       else if (this.props.song.playStatus === true) {
-        this.props.pauseSong(uniqueId,src)
+        this.props.pauseSong(uniqueId,src,this.props.song,songToPlay, songs)
       }
     } else {
-      this.props.playSong(uniqueId,src)
+      var uniqueId = this.props.song.id
+      var src = this.props.song.preview
+      this.props.playSong(uniqueId,src,songToPlay, songs)
       }
 
   }

@@ -56,18 +56,23 @@ export function removeSongsState(){
 }
 
 
-export function playSong(uniqueId, src){
+export function playSong(uniqueId, src, song){
 
   return function(dispatch){
+    song.playStatus = true
+
     dispatch(audioPlay(uniqueId));
     dispatch(audioSrc(src));
+    dispatch({type: 'PLAY', payload: song})
   }
 }
 
-export function pauseSong(uniqueId, src){
+export function pauseSong(uniqueId, src, song){
 
   return function(dispatch){
+    song.playStatus = false
     dispatch(audioPause(uniqueId));
     dispatch(audioSrc(src));
+    dispatch({type: 'PAUSE', payload: song})
   }
 }

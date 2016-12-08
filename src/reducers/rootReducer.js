@@ -38,8 +38,13 @@ function reducerSongs(state={}, action){
   switch (action.type){
     case "SAVE_SONGS":
       return {...state, songs: action.payload}
+    case "PLAY":
+      return {...state, songs:{playStatus: action.payload}}
+    case "PAUSE":
+      return {...state, songs:{playStatus: action.payload}}
     default:
       return state
+
   }
 }
 
