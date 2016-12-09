@@ -1,8 +1,7 @@
 import React from 'react';
-import {findRelatedArtist} from '../actions/SpotifyActions'
+import {findRelatedArtist, findTopTracks} from '../actions/SpotifyActions'
 import { getNewSwipeFromLikedAction, removeSongsState } from '../actions/ReactActions'
 import { storeLikedArtistAction, getLikedArtistsAction } from '../actions/RailsActions'
-import { findTopTracks } from '../actions/SpotifyActions'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ShowArtist from './ShowArtist'
@@ -12,6 +11,7 @@ import ReactDOM from 'react-dom';
 import ArtistsBar from './ArtistsBar'
 import UserBar from './UserBar'
 import HelpBar from './HelpBar'
+import $ from 'jquery'
 
 class SwipeArtist extends React.Component {
 
@@ -36,6 +36,11 @@ class SwipeArtist extends React.Component {
   }
 
   artistsBarClick(){
+    if (this.state.artistsBar == false){
+      $('#divFocus').hide()
+    } else {
+      $('#divFocus').show()
+    }
     this.setState({artistsBar: !this.state.artistsBar})
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }

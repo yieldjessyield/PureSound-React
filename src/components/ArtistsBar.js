@@ -12,7 +12,7 @@ class ArtistsBar extends React.Component {
     let url = 'https://play.spotify.com/artist/'
 
     return (
-      this.props.likedArtists.liked_artists.map(artist => {return(
+      this.props.likedArtists.map(artist => {return(
           <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name.toLowerCase().split('').join(' ')} />
         )
       })
@@ -20,7 +20,6 @@ class ArtistsBar extends React.Component {
   }
 
   render() {
-    debugger
     return(
       <div>
       <Coverflow height='200' width='auto' id='CoverFlow'
@@ -40,7 +39,8 @@ class ArtistsBar extends React.Component {
 }
 
 function mapStateToProps(state){
-  return {likedArtists: state.likedArtists }
+  debugger
+  return {likedArtists: state.likedArtists.liked_artists }
 }
 
 function mapDispatchToProps(dispatch){
