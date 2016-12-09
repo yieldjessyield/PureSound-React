@@ -12,7 +12,6 @@ import ReactDOM from 'react-dom';
 import ArtistsBar from './ArtistsBar'
 import UserBar from './UserBar'
 import HelpBar from './HelpBar'
-import $ from 'jquery'
 
 class SwipeArtist extends React.Component {
 
@@ -38,14 +37,17 @@ class SwipeArtist extends React.Component {
 
   artistsBarClick(){
     this.setState({artistsBar: !this.state.artistsBar})
+    ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
   userBarClick(){
     this.setState({userBar: !this.state.userBar})
+    ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
   helpBarClick(){
     this.setState({helpBar: !this.state.helpBar})
+    ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
   handleOnKeyDown(event){
@@ -105,9 +107,9 @@ class SwipeArtist extends React.Component {
     return (
       <div>
         <nav id='navBar'>
-          <button onClick={this.artistsBarClick}>coverFlow</button>
-          <button onClick={this.userBarClick}>user</button>
-          <button onClick={this.helpBarClick}>help</button>
+          <button  className='navBarButtons' onClick={this.artistsBarClick}>&hearts;</button>
+          <button  className='navBarButtons' onClick={this.userBarClick}>&#9786;</button>
+          <button  className='navBarButtons' onClick={this.helpBarClick}>?</button>
           {this.state.artistsBar === true ? <ArtistsBar /> : null}
           {this.state.userBar === true ? <UserBar user={this.props.user}/> : null}
           {this.state.helpBar === true ? <HelpBar /> : null}

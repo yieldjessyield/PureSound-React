@@ -6,11 +6,11 @@ import CreateUser from './CreateUser'
 
 const Home = () => {
   return (
-    <div id="Home">
-      <LoginUser />
-      <CreateUser />
+    <span className="Home">
+        <LoginUser />
+        <CreateUser />
       <div id='logo'>simplify</div>
-    </div>
+    </span>
   )
 }
 

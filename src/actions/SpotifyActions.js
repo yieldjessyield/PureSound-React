@@ -15,6 +15,8 @@ export function findArtistByName(artistName){
       url: `https://api.spotify.com/v1/search?q=${artistName}&type=artist&market=US`
     }).done(function(data){
       if (data.artists.items[0] === undefined || data.artists.items[0].images[0] === undefined){
+        $('#artistSearch').val('')
+        $('#checkArtistDivId').hide()
         alert('Invalid Artist')
       }
       // else if(data.artists.items[0].images[0] === undefined){
@@ -31,6 +33,7 @@ export function findArtistByName(artistName){
         let artistUrl = data.artists.items[0].images[0].url
 
         let artist = {artistId: artistId, artistName: artistName, artistUrl: artistUrl}
+        $('#checkArtistDivId').show()
         dispatch({type: 'INITIAL_ARTIST', payload: artist})
       }
     })
@@ -131,7 +134,7 @@ export function findTopTracks(artistId){
         album_art:data.tracks[2].album.images[1].url,
         preview:data.tracks[2].preview_url,
         playStatus:false
-        
+
       }]
       console.log(songs)
       dispatch(storeSongs(songs))

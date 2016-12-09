@@ -13,7 +13,6 @@ import $ from 'jquery'
 class InitialArtist extends Component {
   handleArtistCheck(event){
     event.preventDefault()
-    $('#checkArtistDivId').show()
     this.props.findArtistByName(event.target.children[1].value)
   }
 
@@ -26,14 +25,14 @@ class InitialArtist extends Component {
 
     return(
       <div id='InitialArtist'>
-      <h1>Submit Three of Your Favorite Artists</h1>
+      <YesArtists />
+      <h1 className='initialArtistsProcess'>s u b m i t&nbsp; t h r e e&nbsp; a r t i s t s</h1>
       <form onSubmit={this.handleArtistCheck.bind(this)}>
-        <label type="text">Name:</label>
-        <input id='artistSearch' type="text"/>
-        <button type="submit">Submit</button>
+        <label className='initialArtistsProcess' type="text">n a m e:</label>&nbsp;&nbsp;
+        <input id='artistSearch' type="text" autoComplete='off'/>&nbsp;&nbsp;
+        <button className='initialArtistsProcess' id='initialArtistSubmit' type="submit">s u b m i t</button>
       </form>
       <CheckArtist />
-      <YesArtists />
       </div>
     )
   }

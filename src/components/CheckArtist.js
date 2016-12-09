@@ -27,11 +27,11 @@ class CheckArtist extends Component {
     if(artist.length !== 0) {
       checkArtistDiv =
         <div id='checkArtistDivId'>
-          <h5 id='artistNameCheck'>{artist.artistName}</h5>
-          <img id='artistCheckImage' role='presentation' src={artist.artistUrl}/>
-          <h5>Correct?</h5>
-          <button onClick={this.handleYesCheck.bind(this)}>Yes</button>
-          <button onClick={this.handleNoCheck.bind(this)}>No</button>
+          <br/>
+          <img id='artistCheckImage' role='presentation' src={artist.artistUrl}/><br/>
+          <h3 className='signUpProcess'>y o u&nbsp; s u r e ?</h3>
+          <button className ='checkButtons' onClick={this.handleYesCheck.bind(this)}>&#10004;</button>
+          <button className ='checkButtons' onClick={this.handleNoCheck.bind(this)}>&#10006;</button>
         </div>
     }
 

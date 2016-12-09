@@ -27,6 +27,7 @@ class LoginUser extends React.Component {
     let password = event.target.children[4].value
 
     this.props.loginUserAction(email, password)
+    $('.form-control').val('')
   }
 
 
@@ -36,11 +37,11 @@ class LoginUser extends React.Component {
         <button id='login' onClick={this.switchVisible}>Login</button>
         <div id='loginForm' className='form-group'>
         <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
-          <label className='col-form-label' type="text">email</label>
+          <label className='col-form-label' type="text">e m a i l</label>
           <input className='form-control' type="text" /><br/>
-          <label className='col-form-label' type="text">password</label>
+          <label className='col-form-label' type="text">p a s s w o r d</label>
           <input className='form-control' type="password" /><br/>
-          <button type="submit">Login</button>
+          <button className='formButton' type="submit">&#8594;</button>
         </form>
         </div>
       </div>

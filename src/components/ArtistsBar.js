@@ -13,7 +13,7 @@ class ArtistsBar extends React.Component {
 
     return (
       this.props.likedArtists.liked_artists.map(artist => {return(
-          <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name} />
+          <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name.toLowerCase().split('').join(' ')} />
         )
       })
     )

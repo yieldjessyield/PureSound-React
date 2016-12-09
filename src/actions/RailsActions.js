@@ -27,14 +27,21 @@ export function loginUserAction(email, password){
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      localStorage.setItem('jwt', data.jwt)
-      // fix this dispatch it's not working yet
-      dispatch({type: 'LOGIN_USER', payload: data})
-      dispatch(getLikedArtistsAction())
-      browserHistory.push('/swipeArtist')
-      // login with this email it's the first user: desmond.farrell@ryan.biz
-      //ben's email is this anais@jaskolskinitzsche.co
-      //becca's email: garett.rodriguez@stromanconn.info
+      if (data.error){
+        
+        alert('poor street cred, try again')
+        browserHistory.push('/')
+      } else {
+        localStorage.setItem('jwt', data.jwt)
+
+        // fix this dispatch it's not working yet
+        dispatch({type: 'LOGIN_USER', payload: data})
+        dispatch(getLikedArtistsAction())
+        browserHistory.push('/swipeArtist')
+        // login with this email it's the first user: desmond.farrell@ryan.biz
+        //ben's email is this anais@jaskolskinitzsche.co
+        //becca's email: garett.rodriguez@stromanconn.info
+      }
     })
   }
 }

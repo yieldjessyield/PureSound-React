@@ -12,15 +12,14 @@ class YesArtists extends React.Component {
     if(artists.length !== 0){
       selectedArtists = this.props.yesArtists.map(function(artist) {
         return (
-          <span>
-            <img id='yesArtistsPhoto' role='presentation' src={artist.artistUrl}/>
-            {artist.artistName}
+          <span className='yesArtistsSpan'>
+            <img id='yesArtistsPhoto' role='presentation' src={artist.artistUrl}/>&nbsp;&nbsp;
           </span>
         )
       })
       yesArtistsDiv =
         <div>
-          <h1>Selected Artists</h1>
+          <h1 className='signUpProcess'>y o u r&nbsp; a r t i s t s</h1>
           {selectedArtists}
         </div>
     }

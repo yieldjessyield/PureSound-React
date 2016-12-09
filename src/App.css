@@ -9,9 +9,16 @@ body {
   outline: none;
 }
 
-#Home {
+.Home {
   padding-top: 30px;
-  padding-right: 30px;
+  padding-left: 30px;
+  display: inline-block;
+  clear: both;
+}
+
+.homeComps {
+  display: inline-block;
+  float: right;
 }
 
 #signUp {
@@ -19,18 +26,18 @@ body {
   font-size: 20px;
   font-family: 'Bungee Inline', cursive;
   text-decoration: none;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 20px;
   transition-duration: .2s;
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
   background-color: black;
-  padding: 15px 27px;
+  padding: 15px 36px;
 }
 
 #signUp:hover {
   color: black;
-  background-color: white;
+  background-color: inherit;
   transition-duration: .2s;
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
@@ -41,18 +48,18 @@ body {
   font-size: 20px;
   font-family: 'Bungee Inline', cursive;
   text-decoration: none;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 20px;
   transition-duration: .2s;
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
   background-color: black;
-  padding: 15px 27px;
+  padding: 15px 44px;
 }
 
 #login:hover {
   color: black;
-  background-color: white;
+  background-color: inherit;
   transition-duration: .2s;
   -webkit-transition-duration: .2s;
   -moz-transition-duration: .2s;
@@ -68,36 +75,57 @@ body {
   padding-top: 40px;
 }
 
+.checkButtons {
+  color: black;
+  font-size: 20px;
+  border: none;
+  background: transparent;
+}
+
+.checkButtons:hover {
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+}
+
+.formButton {
+  font-size: 30px;
+  border: none;
+  background: transparent;
+}
+
+.formButton:hover {
+  background-color: black;
+  border-radius: 15px;
+  color: white
+}
+
 #logo {
   position:absolute;
   bottom:0;
-  /*padding-top: 500px;*/
   font-family: 'Bungee Outline', cursive;
-  /*position: fixed;*/
   font-size: 200px;
-  /*padding-left: 40px;*/
 }
 
 #InitialArtist {
+  padding-top: 20px;
   text-align: center;
 }
 
-#artistCheckImage {
-  width: 400px;
-  height: auto;
-  border-radius: 25px;
+#checkArtistDivId img {
+    height:300px;
+    width:300px;
+    border-radius: 25px;
 }
 
 #ShowArtist {
   text-align: center;
 }
 
-#like_button {
-  float: center;
-}
-
-#next_button {
-  float: center;
+#ShowArtist.active #showArtistPhoto {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 5px #aaa;
 }
 
 #showArtistName {
@@ -130,14 +158,10 @@ body {
   border: none;
 }
 
-#yesArtistsPhoto {
-  display: inline;
-  margin: 0 auto;
-  width: 100px;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  border-radius: 25px;
+.yesArtistsSpan img {
+    height:100px;
+    width:100px;
+    border-radius: 25px;
 }
 
 .showSongsClass {
@@ -164,18 +188,84 @@ body {
   height: 50px;
 }
 
-.navBar {
-  background-color: rgba(128, 128, 128, 0.5);
+#navBar {
+  padding-top: 15px;
+  padding-left: 15px;
+  /*background-color: transparent;*/
+  /*background-color: rgba(128, 128, 128, 0.5);*/
+}
+
+#helpButton {
+  background: url('./images/help.svg');
+  width: 40px;
+  height: auto;
 }
 
 #coverFlowPhoto {
   border-radius: 0px;
 }
 
+.coverflow__stage__14oqC {
+  background: transparent;
+  border-radius: 25px;
+}
+
 .coverflow_figure_3bk_C {
   max-height: 15px
 }
 
-.coverflow_text_39hqd {
-  max-height: 1px
+.coverflow__text__39hqd {
+  font-family: 'Karla', sans-serif;
+  /*display: none;*/
+  /*background: inherit;
+  max-width: auto;
+  max-height: 30px;
+  border-radius: 0px;*/
+}
+
+.navBarButtons {
+  font-size: 20px;
+  font-family: 'Karla', sans-serif;
+  height: auto;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.navBarButtons:hover {
+  background-color: white;
+  color: black;
+}
+
+
+#artistSearch {
+  border-radius: 5px;
+  border: none;
+}
+
+#initialArtistSubmit {
+  /*color: white;*/
+  font-size: 15px;
+  border: none;
+  background: transparent;
+}
+
+#initialArtistSubmit:hover {
+background-color: black;
+border-radius: 5px;
+color: white
+}
+
+.signUpProcess {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Karla', sans-serif;
+}
+
+.initialArtistsProcess {
+  font-family: 'Karla', sans-serif;
 }

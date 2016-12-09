@@ -36,13 +36,13 @@ class CreateUser extends React.Component {
         <button id='signUp' onClick={this.switchVisible}>Sign Up</button>
         <div id='signUpForm'>
           <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
-            <label className='col-form-label' type="text">email</label>
+            <label className='col-form-label' type="text">e m a i l</label>
             <input className='form-control' type="text" required/><br/>
-            <label className='col-form-label' type="text">password</label>
+            <label className='col-form-label' type="text">p a s s w o r d</label>
             <input className='form-control' type="password" required/><br/>
-            <label className='col-form-label' type="text">phone number</label>
+            <label className='col-form-label' type="text">p h o n e  n u m b e r</label>
             <input className='form-control' type="tel" required/><br/>
-            <button className='formButton' type="submit">Create User</button>
+            <button className='formButton' type="submit">&#8594;</button>
           </form>
         </div>
       </div>
