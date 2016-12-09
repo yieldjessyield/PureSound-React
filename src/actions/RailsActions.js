@@ -28,7 +28,7 @@ export function loginUserAction(email, password){
      dataType:"json"
     }).done(function(data){
       if (data.error){
-        
+
         alert('poor street cred, try again')
         browserHistory.push('/')
       } else {
@@ -58,7 +58,8 @@ export function storeArtistsRails(artistsData){
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
       // this will save likedartists to state
-      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      debugger
+      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists
       var randArtist = artists[Math.floor(Math.random()*artists.length)];
@@ -77,7 +78,8 @@ export function getLikedArtistsAction(){
     }).done(function(data){
       // debugger
       // saves the user's liked artists to the state
-      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data})
+      debugger
+      dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists
       var randArtist = artists[Math.floor(Math.random()*artists.length)];

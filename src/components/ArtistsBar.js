@@ -7,13 +7,23 @@ import ReactDOM from 'react-dom'
 import Coverflow from 'react-coverflow'
 
 class ArtistsBar extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.runURL = this.runURL.bind(this)
+  // }
+  // runURL(url){
+  //   window.open(url)
+  // }
 
   displayCoverFlow(){
     let url = 'https://play.spotify.com/artist/'
 
     return (
-      this.props.likedArtists.liked_artists.map(artist => {return(
+      this.props.likedArtists.map(artist => {return(
+          // <span>
           <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name.toLowerCase().split('').join(' ')} />
+          // <button onClick={this.runURL('https://google.com')}>{artist.name.toLowerCase().split('').join(' ')}</button>
+          // </span>
         )
       })
     )
