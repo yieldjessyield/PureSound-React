@@ -30,19 +30,20 @@ class UserBar extends React.Component {
 
   render() {
     return(
-      <div>
-        <h3 id='showUserName'>Hello, {this.props.user.userEmail}</h3>
-        <h5>Edit your info below</h5>
-        <form onSubmit={this.handleUserEdit.bind(this)}>
-          <label type="text">Email:</label>
-            <input type="text" onChange={this.handleEmailChange.bind(this)} value={this.state.email}/>
-          <label type="text">Phone Number:</label>
-            <input type="text" onChange={this.handlePhoneNumberChange.bind(this)} value={this.state.phoneNumber}/>
-          <label type="text">Password:</label>
-            <input type="password" onChange={this.handlePasswordChange.bind(this)} value={this.state.password} />
-          <button type="submit">Submit</button>
+      <div id='userBarDiv'>
+      <div id='userBarForm'>
+        <form className='form-group' onSubmit={this.handleUserEdit.bind(this)}>
+          <label className='col-form-label' type="text">e m a i l</label>
+            <input className='form-control' type="text" onChange={this.handleEmailChange.bind(this)} value={this.state.email}/>
+          <label className='col-form-label' type="text">p a s s w o r d</label>
+            <input className='form-control' type="password" onChange={this.handlePasswordChange.bind(this)} value={this.state.password} />
+            <label className='col-form-label' type="text">p h o n e  n u m b e r</label>
+              <input className='form-control' type="text" onChange={this.handlePhoneNumberChange.bind(this)} value={this.state.phoneNumber}/>
+          <button id='userBarButton' type="submit">&#9998;</button>
         </form>
       </div>
+      <div className='yourLikedArtists'>{this.props.user.userEmail}</div>
+    </div>
     )
   }
 }

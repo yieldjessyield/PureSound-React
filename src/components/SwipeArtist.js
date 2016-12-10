@@ -46,6 +46,11 @@ class SwipeArtist extends React.Component {
   }
 
   userBarClick(){
+    if (this.state.userBar == false){
+      $('#divFocus').hide()
+    } else {
+      $('#divFocus').show()
+    }
     this.setState({userBar: !this.state.userBar})
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
@@ -110,19 +115,19 @@ class SwipeArtist extends React.Component {
 // add a focus event, perhaps it has to be on input or checkbox
 // listening for every keydown, and checking the key code.
     return (
-      <div>
-        <nav id='navBar'>
-          <button  className='navBarButtons' onClick={this.artistsBarClick}>&hearts;</button>
-          <button  className='navBarButtons' onClick={this.userBarClick}>&#9786;</button>
+      <div id='coverFlowDiv'>
+        <span id='navBar'>
+          &nbsp;<button  className='navBarButtons' onClick={this.artistsBarClick}>&hearts;</button>&nbsp;
+          <button  className='navBarButtons' onClick={this.userBarClick}>&#9786;</button>&nbsp;
           <button  className='navBarButtons' onClick={this.helpBarClick}>?</button>
           {this.state.artistsBar === true ? <ArtistsBar /> : null}
           {this.state.userBar === true ? <UserBar user={this.props.user}/> : null}
           {this.state.helpBar === true ? <HelpBar /> : null}
-        </nav>
-        <div id='divFocus' ref='divFocus' tabIndex="0" onKeyDown={this.handleOnKeyDown.bind(this)} >
+        </span>
+        <span id='divFocus' ref='divFocus' tabIndex="0" onKeyDown={this.handleOnKeyDown.bind(this)} >
           <ShowArtist artist={this.props.swipeArtist}/>
           {songsBar}
-        </div>
+        </span>
       </div>
     );
   }

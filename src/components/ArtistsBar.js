@@ -7,13 +7,23 @@ import ReactDOM from 'react-dom'
 import Coverflow from 'react-coverflow'
 
 class ArtistsBar extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.runURL = this.runURL.bind(this)
+  // }
+  // runURL(url){
+  //   window.open(url)
+  // }
 
   displayCoverFlow(){
     let url = 'https://play.spotify.com/artist/'
 
     return (
       this.props.likedArtists.map(artist => {return(
+          // <span>
           <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name.toLowerCase().split('').join(' ')} />
+          // <button onClick={this.runURL('https://google.com')}>{artist.name.toLowerCase().split('').join(' ')}</button>
+          // </span>
         )
       })
     )
@@ -22,7 +32,7 @@ class ArtistsBar extends React.Component {
   render() {
     return(
       <div>
-      <Coverflow height='200' width='auto' id='CoverFlow'
+      <Coverflow height='200' width='100%' id='CoverFlow'
         startPosition={0}
         displayQuantityOfSide={3}
         navigation={false}
@@ -32,6 +42,7 @@ class ArtistsBar extends React.Component {
       >
         {this.displayCoverFlow()}
       </Coverflow>
+      <div className='yourLikedArtists'>your liked artists</div>
     </div>
     )
   }
@@ -40,7 +51,7 @@ class ArtistsBar extends React.Component {
 
 function mapStateToProps(state){
   debugger
-  return {likedArtists: state.likedArtists.liked_artists }
+  return {likedArtists: state.likedArtists }
 }
 
 function mapDispatchToProps(dispatch){
