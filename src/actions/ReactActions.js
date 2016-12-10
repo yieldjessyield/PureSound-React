@@ -54,23 +54,32 @@ export function removeSongsState(){
 }
 
 
-export function playSong(uniqueId, src, song){
-
+export function playSong(songs, clickedSong){
+  // let updatedSong = songs[i]
+  // songs[i].playStatus = true
+  // let updatedSongs = songs
+  //   songs[i] = updatedSong
+  let uniqueId = clickedSong.id
+  let src = clickedSong.preview
+  debugger
   return function(dispatch){
-    song.playStatus = true
-
     dispatch(audioPlay(uniqueId));
     dispatch(audioSrc(src));
-    dispatch({type: 'PLAY', payload: song})
+    dispatch({type: 'PLAY', payload: songs})
   }
 }
 
-export function pauseSong(uniqueId, src, song){
-
+export function pauseSong(songs){
   return function(dispatch){
-    song.playStatus = false
-    dispatch(audioPause(uniqueId));
-    dispatch(audioSrc(src));
-    dispatch({type: 'PAUSE', payload: song})
+    let updatedSongs = songs.map(function(song){
+      song.playStatus = false
+    })
+    debugger
+    dispatch({type: 'PAUSE', payload: updatedSongs})
+
+    songs.map(function(song) {
+        dispatch(audioPause(song.id));
+        dispatch(audioSrc(song.preview));
+    })
   }
 }

@@ -35,30 +35,6 @@ class SwipeArtist extends React.Component {
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
-  // artistsBarClick(){
-  //   if (this.state.artistsBar == false){
-  //     $('#divFocus').hide()
-  //   } else {
-  //     $('#divFocus').show()
-  //   }
-  //   this.setState({artistsBar: !this.state.artistsBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
-  //
-  // userBarClick(){
-  //   if (this.state.userBar == false){
-  //     $('#divFocus').hide()
-  //   } else {
-  //     $('#divFocus').show()
-  //   }
-  //   this.setState({userBar: !this.state.userBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
-  //
-  // helpBarClick(){
-  //   this.setState({helpBar: !this.state.helpBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
 
   handleOnKeyDown(event){
     event.preventDefault()

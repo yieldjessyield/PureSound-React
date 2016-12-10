@@ -7,38 +7,25 @@ import '../App.css';
 
 class ShowSongs extends React.Component {
 
+  constructor(){
+    super()
+  }
+
 
   handlePlayPauseSong(event){
-    var songPlaying = this.props.songs.filter(function(song){
-      return song.playStatus === true
-    })
+    debugger
+    let songs = this.props.songs
+    let clickedSong = this.props.song
+    // let i = songs.indexOf(clickedSong)
 
-    var songs = this.props.songs
-
-    var songToPlay = this.props.song
-
-    if(songPlaying && songPlaying.length>0){
-      var songPlayingId = songPlaying.id
-      var songPlayingUrl = songPlaying.preview
-      var uniqueId = this.props.song.id
-      var src = this.props.song.preview
-
-      if(this.props.song.playStatus === false){
-        this.props.pauseSong(songPlayingId, songPlayingUrl, songPlaying)
-        this.props.playSong(uniqueId,src,songToPlay)
+    if(this.props.song.playStatus === false){
+      this.props.pauseSong(songs);
+      this.props.playSong(songs, clickedSong)
         // this.props.handleShowSongName(songToPlay)
-
-      }
-      else if (this.props.song.playStatus === true) {
-        this.props.pauseSong(uniqueId,src, this.props.song, songToPlay)
-      }
-    } else {
-        var uniqueId = this.props.song.id
-        var src = this.props.song.preview
-        this.props.playSong(uniqueId,src,songToPlay)
-        // this.props.handleShowSongName(songToPlay)
-      }
-
+    }
+    else if (this.props.song.playStatus === true) {
+      this.props.pauseSong(songs);
+    }
   }
 
   handleDoubleClick(event){

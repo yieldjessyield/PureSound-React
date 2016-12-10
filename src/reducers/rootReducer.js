@@ -41,9 +41,9 @@ function reducerSongs(state={}, action){
     case "SAVE_SONGS":
       return {...state, songs: action.payload}
     case "PLAY":
-      return {...state, songs:{playStatus: action.payload}}
+      return {...state, songs: action.payload}
     case "PAUSE":
-      return {...state, songs:{playStatus: action.payload}}
+      return {...state, songs: action.payload}
     default:
       return state
 
