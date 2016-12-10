@@ -5,6 +5,24 @@ body {
   background-position: center;
 }
 
+#leftArrow {
+  /*padding-right: 400px;
+  padding-top: 100px;*/
+  background: transparent;
+  border: none;
+  font-size: 150px;
+  font-family: 'Bungee Inline', cursive;
+}
+
+#rightArrow {
+  /*padding-right: 400px;
+  padding-top: 100px;*/
+  background: transparent;
+  border: none;
+  font-size: 150px;
+  font-family: 'Bungee Inline', cursive;
+}
+
 #divFocus {
   outline: none;
 }
@@ -159,6 +177,12 @@ body {
   clear: both;
 }
 
+#doubleClickSong {
+  font-family: 'Bungee Outline', cursive;
+  font-size: 40px;
+  color: white;
+}
+
 #InitialArtist {
   padding-top: 20px;
   text-align: center;
@@ -211,10 +235,14 @@ body {
     border-radius: 25px;
 }
 
-.showSongsClass {
-  display: inline-block;
-  overflow: hidden;
+#container {
   text-align: center;
+}
+
+.showSongsClass {
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
 }
 
 .container {

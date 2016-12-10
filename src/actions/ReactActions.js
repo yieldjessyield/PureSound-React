@@ -37,7 +37,7 @@ export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtist
     }else{
        var nahArtists = stateNahArtists
     }
-    let artists = likedState.liked_artists
+    let artists = likedState
     var randArtist = artists[Math.floor(Math.random() * artists.length)];
     // var randArtist = artists[Math.floor(Math.random()*likedState.liked_artists.length)];
     // then finds the related artist based on random artist

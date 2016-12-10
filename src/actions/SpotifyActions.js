@@ -73,7 +73,7 @@ export function findRelatedArtist(artistId, nahArtists){
     function randomizer(artists){
       var relatedArtists = artists.slice(0,15)
       var randArtist = relatedArtists[Math.floor(Math.random()*relatedArtists.length)]
-      var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[1].url, followers: randArtist.followers.total}
+      var swipeArtist = {spotify_id: randArtist.id, name: randArtist.name, image: randArtist.images[0].url, followers: randArtist.followers.total}
       return swipeArtist
     }
 

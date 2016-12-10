@@ -17,13 +17,14 @@ class ArtistsBar extends React.Component {
 
   displayCoverFlow(){
     let url = 'https://play.spotify.com/artist/'
-
+    debugger
     return (
-      this.props.likedArtists.map(artist => {return(
+      this.props.likedArtists.map(artist => {
+          debugger
+        return(
           // <span>
-          <img id='coverFlowPhoto' height='175px' src={artist.image} alt={artist.name.toLowerCase().split('').join(' ')} />
-          // <button onClick={this.runURL('https://google.com')}>{artist.name.toLowerCase().split('').join(' ')}</button>
-          // </span>
+          <img id='coverFlowPhoto' height='175px' src={artist.image}
+          alt={artist.name.toLowerCase().split('').join(' ')} />
         )
       })
     )
@@ -32,7 +33,7 @@ class ArtistsBar extends React.Component {
   render() {
     return(
       <div>
-      <Coverflow height='200' width='100%' id='CoverFlow'
+      <Coverflow height='270' width='100%' id='CoverFlow'
         startPosition={0}
         displayQuantityOfSide={3}
         navigation={false}

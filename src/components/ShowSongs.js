@@ -26,6 +26,7 @@ class ShowSongs extends React.Component {
       if(this.props.song.playStatus === false){
         this.props.pauseSong(songPlayingId, songPlayingUrl, songPlaying)
         this.props.playSong(uniqueId,src,songToPlay)
+        // this.props.handleShowSongName(songToPlay)
 
       }
       else if (this.props.song.playStatus === true) {
@@ -35,10 +36,14 @@ class ShowSongs extends React.Component {
         var uniqueId = this.props.song.id
         var src = this.props.song.preview
         this.props.playSong(uniqueId,src,songToPlay)
+        // this.props.handleShowSongName(songToPlay)
       }
 
   }
 
+  handleDoubleClick(event){
+    this.props.handleShowSongName(this.props.song.name)
+  }
 
 
   render() {
@@ -54,10 +59,11 @@ class ShowSongs extends React.Component {
     //     var cssClass = "right"
     //   }
     return(
-      <span id='songsBar' className='showSongsClass' >
-        <h4>{this.props.song.name}</h4>
-        <img id='albumPhoto' role='presentation' src={this.props.song.album_art} onClick={this.handlePlayPauseSong.bind(this)}/>
-        <Audio src={this.props.song.preview} uniqueId={this.props.song.id} />
+      <span className='showSongsClass' >
+        <img id='albumPhoto' role='presentation' src={this.props.song.album_art}
+          onDoubleClick={this.handleDoubleClick.bind(this)}
+         onClick={this.handlePlayPauseSong.bind(this)}/>
+        <Audio src={this.props.song.preview} loop uniqueId={this.props.song.id} />
       </span>
     )
   }

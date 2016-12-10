@@ -3,6 +3,8 @@ import '../App.css';
 import { bindActionCreators } from 'redux'
 import {submitUserUpdate} from '../actions/RailsActions'
 import {connect} from 'react-redux'
+import ReactDOM from 'react-dom';
+
 
 class UserBar extends React.Component {
   constructor(props) {
@@ -48,8 +50,12 @@ class UserBar extends React.Component {
   }
 }
 
+function mapStateToProps(state){
+  return {user: state.user}
+}
+
 function mapDispatchToProps(dispatch){
   return bindActionCreators({submitUserUpdate: submitUserUpdate }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(UserBar)
+export default connect(mapStateToProps, mapDispatchToProps)(UserBar)
