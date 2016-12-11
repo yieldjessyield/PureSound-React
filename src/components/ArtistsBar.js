@@ -43,7 +43,7 @@ class ArtistsBar extends React.Component {
       >
         {this.displayCoverFlow()}
       </Coverflow>
-      <div className='yourLikedArtists'>your liked artists</div>
+      <div className='yourLikedArtists'>artists</div>
     </div>
     )
   }

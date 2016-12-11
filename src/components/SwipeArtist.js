@@ -8,9 +8,6 @@ import ShowArtist from './ShowArtist'
 import '../App.css';
 import ShowSongs from './ShowSongs'
 import ReactDOM from 'react-dom';
-// import ArtistsBar from './ArtistsBar'
-// import UserBar from './UserBar'
-// import HelpBar from './HelpBar'
 import $ from 'jquery'
 import NavBar from './NavBar'
 
@@ -26,39 +23,11 @@ class SwipeArtist extends React.Component {
     this.handleLikeArtist = this.handleLikeArtist.bind(this)
     this.handleShowSongs = this.handleShowSongs.bind(this)
     this.handleShowSongName = this.handleShowSongName.bind(this)
-    // this.artistsBarClick = this.artistsBarClick.bind(this)
-    // this.userBarClick = this.userBarClick.bind(this)
-    // this.helpBarClick = this.helpBarClick.bind(this)
   }
 
   componentDidMount(){
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
-
-  // artistsBarClick(){
-  //   if (this.state.artistsBar == false){
-  //     $('#divFocus').hide()
-  //   } else {
-  //     $('#divFocus').show()
-  //   }
-  //   this.setState({artistsBar: !this.state.artistsBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
-  //
-  // userBarClick(){
-  //   if (this.state.userBar == false){
-  //     $('#divFocus').hide()
-  //   } else {
-  //     $('#divFocus').show()
-  //   }
-  //   this.setState({userBar: !this.state.userBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
-  //
-  // helpBarClick(){
-  //   this.setState({helpBar: !this.state.helpBar})
-  //   ReactDOM.findDOMNode(this.refs.divFocus).focus();
-  // }
 
   handleOnKeyDown(event){
     event.preventDefault()
@@ -80,7 +49,6 @@ class SwipeArtist extends React.Component {
   }
 
   handleShowSongs (event){
-    // event.preventDefault()
     this.setState({songPlaying: ""})
     this.props.findTopTracks(this.props.swipeArtist.spotify_id)
   }

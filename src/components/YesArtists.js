@@ -19,7 +19,6 @@ class YesArtists extends React.Component {
       })
       yesArtistsDiv =
         <div>
-          <h1 className='signUpProcess'>y o u r&nbsp; a r t i s t s</h1>
           {selectedArtists}
         </div>
     }
