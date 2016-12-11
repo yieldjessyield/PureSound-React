@@ -11,10 +11,16 @@ export function createUserAction(email, password, phoneNumber){
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      localStorage.setItem('jwt', data.jwt)
-      // fix this dispatch it's not working yet
-      dispatch({type: 'NEW_USER', payload: data})
-      browserHistory.push('/artists')
+      if (data.error){
+        $('.form-control').val('')
+        alert('email is not unique')
+        browserHistory.push('/')
+      } else {
+        localStorage.setItem('jwt', data.jwt)
+        // fix this dispatch it's not working yet
+        dispatch({type: 'NEW_USER', payload: data})
+        browserHistory.push('/artists')
+      }
     })
   }
 }
@@ -27,9 +33,8 @@ export function loginUserAction(email, password){
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      debugger
       if (data.error){
-
+        $('.form-control').val('')
         alert('poor street cred, try again')
         browserHistory.push('/')
       } else {

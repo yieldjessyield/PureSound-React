@@ -33,6 +33,7 @@ class ArtistsBar extends React.Component {
   render() {
     return(
       <div>
+      <br/>
       <Coverflow height='270' width='100%' id='CoverFlow'
         startPosition={0}
         displayQuantityOfSide={3}

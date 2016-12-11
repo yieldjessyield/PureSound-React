@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import ArtistsBar from './ArtistsBar'
 import UserBar from './UserBar'
 import HelpBar from './HelpBar'
-
+import { browserHistory } from 'react-router'
 
 export default class NavBar extends React.Component {
 
@@ -20,33 +20,46 @@ export default class NavBar extends React.Component {
     this.artistsBarClick = this.artistsBarClick.bind(this)
     this.userBarClick = this.userBarClick.bind(this)
     this.helpBarClick = this.helpBarClick.bind(this)
-
+    this.logOut = this.logOut.bind(this)
 
   }
 
   artistsBarClick(){
     if (this.state.artistsBar == false){
       $('#divFocus').hide()
+      this.setState({userBar: false})
+      this.setState({helpBar: false})
     } else {
       $('#divFocus').show()
     }
     this.setState({artistsBar: !this.state.artistsBar})
-    // ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
   userBarClick(){
     if (this.state.userBar == false){
       $('#divFocus').hide()
+      this.setState({artistsBar: false})
+      this.setState({helpBar: false})
     } else {
       $('#divFocus').show()
     }
     this.setState({userBar: !this.state.userBar})
-    // ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
   helpBarClick(){
+    if (this.state.helpBar == false){
+      $('#divFocus').hide()
+      this.setState({artistsBar: false})
+      this.setState({userBar: false})
+    } else {
+      $('#divFocus').show()
+    }
     this.setState({helpBar: !this.state.helpBar})
-    // ReactDOM.findDOMNode(this.refs.divFocus).focus();
+  }
+
+  logOut(){
+    localStorage.setItem('jwt', '')
+    browserHistory.push('/')
   }
 
 
@@ -55,7 +68,8 @@ export default class NavBar extends React.Component {
       <span id='navBar'>
         &nbsp;<button  className='navBarButtons' onClick={this.artistsBarClick}>&hearts;</button>&nbsp;
         <button  className='navBarButtons' onClick={this.userBarClick}>&#9786;</button>&nbsp;
-        <button  className='navBarButtons' onClick={this.helpBarClick}>?</button>
+        <button  className='navBarButtons' onClick={this.helpBarClick}>?</button>&nbsp;
+        <button  className='navBarButtons' onClick={this.logOut}>&#10007;</button>
         {this.state.artistsBar === true ? <ArtistsBar /> : null}
         {this.state.userBar === true ? <UserBar /> : null}
         {this.state.helpBar === true ? <HelpBar /> : null}
