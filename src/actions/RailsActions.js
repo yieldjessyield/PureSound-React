@@ -11,7 +11,6 @@ export function createUserAction(email, password, phoneNumber){
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      debugger
       if (data.error){
         $('.form-control').val('')
         alert('email is not unique')

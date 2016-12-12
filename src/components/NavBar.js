@@ -62,6 +62,7 @@ class NavBar extends React.Component {
 
   logOut(){
     this.props.logoutUser()
+    localStorage.clear()
     browserHistory.push('/')
   }
 

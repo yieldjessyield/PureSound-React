@@ -60,8 +60,8 @@ class ShowSongs extends React.Component {
     //   }
     return(
       <span className='showSongsClass' >
+      <h3 onDoubleClick={this.handleDoubleClick.bind(this)}></h3>
       <img id='albumPhoto' role='presentation' src={this.props.song.album_art}
-          onDoubleClick={this.handleDoubleClick.bind(this)}
          onClick={this.handlePlayPauseSong.bind(this)}/>
         <Audio src={this.props.song.preview} loop uniqueId={this.props.song.id} />&nbsp;&nbsp;&nbsp;
       </span>
