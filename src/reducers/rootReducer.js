@@ -80,8 +80,15 @@ function reducerNahArtists(state=[], action) {
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})
-// {user:{} artist{artist_spotifyId}}
-// include later songs: reducerSongs, and artist: reducerArtist
+const appReducer = combineReducers({
+  user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'LOGOUT_USER') {
+    state = undefined
+  }
+  return appReducer(state, action)
+}
 
 export default rootReducer

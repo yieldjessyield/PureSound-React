@@ -74,3 +74,9 @@ export function pauseSong(uniqueId, src, song){
     dispatch({type: 'PAUSE', payload: song})
   }
 }
+
+export function logoutUser(){
+  return function (dispatch) {
+    dispatch({type: 'LOGOUT_USER'})
+  }
+}

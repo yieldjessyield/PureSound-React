@@ -5,8 +5,11 @@ import ArtistsBar from './ArtistsBar'
 import UserBar from './UserBar'
 import HelpBar from './HelpBar'
 import { browserHistory } from 'react-router'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { logoutUser } from '../actions/ReactActions'
 
-export default class NavBar extends React.Component {
+class NavBar extends React.Component {
 
   constructor(){
     super()
@@ -58,7 +61,7 @@ export default class NavBar extends React.Component {
   }
 
   logOut(){
-    localStorage.setItem('jwt', '')
+    this.props.logoutUser()
     browserHistory.push('/')
   }
 
@@ -76,5 +79,10 @@ export default class NavBar extends React.Component {
       </span>
     )
   }
-
 }
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({logoutUser}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(NavBar)
