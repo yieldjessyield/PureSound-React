@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router'
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
   $.ajax({
-     url: 'http://localhost:3000/users',
+     url: 'https://simplify-rails.herokuapp.com/users',
      type:'POST',
      data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",
@@ -27,7 +27,7 @@ export function createUserAction(email, password, phoneNumber){
 
 export function loginUserAction(email, password){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/sessions",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/sessions",
             type: "POST",
             data: JSON.stringify({user: {email: email, password: password}}),
      contentType:"application/json; charset=utf-8",
@@ -57,7 +57,7 @@ export function storeArtistsRails(artistsData){
   return function(dispatch){
     // Go to rails and set up in artists controller create
     // method. parce this data and save relevent stuff to db
-    $.ajax({url:"http://localhost:3000/artists",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/artists",
             type: "POST",
             data: JSON.stringify({artists: {artistsData: artistsData}}),
      contentType:"application/json; charset=utf-8",
@@ -77,7 +77,7 @@ export function storeArtistsRails(artistsData){
 // triggered by login button, grabs user's liked artists from rails db
 export function getLikedArtistsAction(){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/liked_artists",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/liked_artists",
             type: "GET",
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
@@ -98,7 +98,7 @@ export function getLikedArtistsAction(){
 // if user likes an artist this saves that artist to db
 export function storeLikedArtistAction(likedArtistData){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/save_liked_artist",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/save_liked_artist",
             type: "POST",
             data: JSON.stringify({likedArtistData: likedArtistData}),
      contentType:"application/json; charset=utf-8",
@@ -117,7 +117,7 @@ export function submitUserUpdate(email, password, phoneNumber){
   //figure out what data is coming in
 
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/update_user_info",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/update_user_info",
             type: "POST",
             data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",
