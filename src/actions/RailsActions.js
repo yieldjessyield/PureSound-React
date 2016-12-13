@@ -64,7 +64,7 @@ export function storeArtistsRails(artistsData){
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
       // this will save likedartists to state
-      debugger
+
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists
@@ -84,7 +84,7 @@ export function getLikedArtistsAction(){
     }).done(function(data){
       // debugger
       // saves the user's liked artists to the state
-      debugger
+
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists

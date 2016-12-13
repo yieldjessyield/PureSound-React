@@ -18,7 +18,7 @@ function reducerUser(state = {}, action){
 function reducerLikedArtists(state= [], action){
   switch (action.type){
     case "SAVE_LIKED_ARTISTS":
-    debugger
+
       return [...action.payload]
       // also could use [].concat(action.payload)
     default:

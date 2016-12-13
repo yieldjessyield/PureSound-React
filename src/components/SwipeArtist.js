@@ -10,6 +10,7 @@ import ShowSongs from './ShowSongs'
 import ReactDOM from 'react-dom';
 import $ from 'jquery'
 import NavBar from './NavBar'
+import { browserHistory } from 'react-router'
 
 class SwipeArtist extends React.Component {
 
@@ -25,7 +26,12 @@ class SwipeArtist extends React.Component {
     this.handleShowSongName = this.handleShowSongName.bind(this)
   }
 
+
   componentDidMount(){
+    // debugger
+    if (this.props.user.jwt === undefined){
+      browserHistory.push('/')
+    }
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
 
@@ -42,9 +48,11 @@ class SwipeArtist extends React.Component {
     else if (event.keyCode === 40){
       // down
       this.handleShowSongs()
+      $('#container').show()
     }
     else if (event.keyCode === 38){
       //  up
+      $('#container').hide()
     }
   }
 
