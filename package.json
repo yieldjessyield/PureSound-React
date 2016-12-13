@@ -6,6 +6,8 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "babel-cli": "6.8.0",
+    "babel-polyfill": "6.8.0",
     "jquery": "^3.1.1",
     "passport-spotify": "^0.3.0",
     "react": "^15.4.1",
@@ -17,9 +19,7 @@
     "redux-audio": "^1.0.0",
     "redux-devtools-extension": "^1.0.0",
     "redux-thunk": "^2.1.0",
-    "webpack": "^1.13.3",
-    "babel-polyfill": "6.8.0",
-    "babel-cli": "6.8.0"
+    "webpack": "^1.13.3"
   },
   "scripts": {
     "start": "react-scripts start",
