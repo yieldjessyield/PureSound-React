@@ -37,9 +37,9 @@
     "eject": "react-scripts eject",
     "clean-public": "npm run remove-public && mkdir public",
     "remove-public": "node_modules/.bin/rimraf ./public",
-    "build:html": "babel-node ./src/tools/buildHtml.js",
+    "build:html": "babel-node app/tools/buildHtml.js",
     "prebuild": "npm-run-all clean-public lint build:html",
-    "build": "babel-node ./src/tools/build.js",
-    "postbuild": "babel-node ./src/tools/publicServer.js"
+    "build": "babel-node app/tools/build.js",
+    "postbuild": "babel-node app/tools/publicServer.js"
   }
 }
