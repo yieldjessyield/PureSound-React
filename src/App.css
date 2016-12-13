@@ -144,16 +144,20 @@ body {
 }
 
 .checkButtons {
-  color: black;
+  color: white;
+  background-color: black
   font-size: 20px;
-  border: none;
-  background: transparent;
+  border: 1px solid black;
+  /*background: transparent;*/
   outline: none;
 }
 
 .checkButtons:hover {
-  border-radius: 100px;
-  color: white;
+  color: black;
+  background-color: inherit;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
   outline: none;
 }
 
@@ -319,15 +323,18 @@ body {
 }
 
 #initialArtistSubmit {
+  color: white;
   font-size: 15px;
-  border: none;
-  background: transparent;
+  border: 1px solid black;
+  background-color: black;
 }
 
 #initialArtistSubmit:hover {
-  background-color: black;
-  border-radius: 5px;
-  color: white;
+  color: black;
+  background-color: inherit;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
   outline: none;
 }
 
