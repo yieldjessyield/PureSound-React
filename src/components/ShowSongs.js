@@ -13,14 +13,13 @@ class ShowSongs extends React.Component {
 
 
   handlePlayPauseSong(event){
-    debugger
     let songs = this.props.songs
     let clickedSong = this.props.song
     // let i = songs.indexOf(clickedSong)
 
     if(this.props.song.playStatus === false){
-      this.props.pauseSong(songs);
-      this.props.playSong(songs, clickedSong)
+      this.props.playSong(songs,clickedSong)
+
         // this.props.handleShowSongName(songToPlay)
     }
     else if (this.props.song.playStatus === true) {
@@ -35,16 +34,6 @@ class ShowSongs extends React.Component {
 
   render() {
 
-    // let url = 'https://embed.spotify.com/?uri=spotify:track:' + this.props.song.id
-    //   if(this.props.songs[0].id === this.props.song.id){
-    //     var cssClass = "left"
-    //   }
-    //   else if (this.props.songs[1].id === this.props.song.id) {
-    //     var cssClass = "center"
-    //   }
-    //   else if (this.props.songs[2].id === this.props.song.id) {
-    //     var cssClass = "right"
-    //   }
     return(
       <span className='showSongsClass' >
       <img id='albumPhoto' role='presentation' src={this.props.song.album_art}

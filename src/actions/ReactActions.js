@@ -30,8 +30,9 @@ export function storeYesArtists(artist) {
 // this is used on the Nah button
 // make sure nahArtists is coming in as an array from state
 export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtists){
+
   return function(dispatch){
-    if (stateNahArtists === undefined || stateNahArtists.length > 20){
+    if (stateNahArtists === undefined || stateNahArtists.length > 150){
       var nahArtists = []
       dispatch({type: 'CLEAR_NAH', payload: nahArtists})
     }else{
@@ -55,27 +56,51 @@ export function removeSongsState(){
 
 
 export function playSong(songs, clickedSong){
-  // let updatedSong = songs[i]
-  // songs[i].playStatus = true
-  // let updatedSongs = songs
-  //   songs[i] = updatedSong
-  let uniqueId = clickedSong.id
-  let src = clickedSong.preview
-  debugger
+
   return function(dispatch){
-    dispatch(audioPlay(uniqueId));
-    dispatch(audioSrc(src));
-    dispatch({type: 'PLAY', payload: songs})
+    let i = songs.indexOf(clickedSong)
+    debugger
+    let notClicked = [0,1,2].filter(function(n){
+      return n != i
+    })
+    debugger
+    songs[i].playStatus = true
+    songs[notClicked[0]].playStatus = false
+    songs[notClicked[1]].playStatus = false
+
+
+
+    dispatch({type: 'SAVE_SONGS', payload: songs});
+
+    let call1 = function (){
+    dispatch(audioPlay(songs[i].id));
+    dispatch(audioSrc(songs[i].preview));}
+
+    let call2 = function(){
+    dispatch(audioPause(songs[notClicked[0]].id));
+    dispatch(audioSrc(songs[notClicked[0]].preview));}
+
+    let call3 = function(){
+    dispatch(audioPause(songs[notClicked[1]].id));
+    dispatch(audioSrc(songs[notClicked[1]].preview));}
+
+    call1()
+    call2()
+    call3()
+
   }
 }
 
+
+
 export function pauseSong(songs){
+
   return function(dispatch){
-    let updatedSongs = songs.map(function(song){
-      song.playStatus = false
+    songs.map(function(song){
+       return song.playStatus = false
     })
-    debugger
-    dispatch({type: 'PAUSE', payload: updatedSongs})
+
+    dispatch({type: 'SAVE_SONGS', payload: songs})
 
     songs.map(function(song) {
         dispatch(audioPause(song.id));
