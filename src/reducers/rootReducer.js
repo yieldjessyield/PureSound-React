@@ -18,7 +18,7 @@ function reducerUser(state = {}, action){
 function reducerLikedArtists(state= [], action){
   switch (action.type){
     case "SAVE_LIKED_ARTISTS":
-    debugger
+
       return [...action.payload]
       // also could use [].concat(action.payload)
     default:
@@ -80,8 +80,15 @@ function reducerNahArtists(state=[], action) {
   }
 }
 
-const rootReducer = combineReducers({user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer})
-// {user:{} artist{artist_spotifyId}}
-// include later songs: reducerSongs, and artist: reducerArtist
+const appReducer = combineReducers({
+  user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'LOGOUT_USER') {
+    state = undefined
+  }
+  return appReducer(state, action)
+}
 
 export default rootReducer

@@ -47,10 +47,10 @@ class ShowSongs extends React.Component {
     //   }
     return(
       <span className='showSongsClass' >
-        <img id='albumPhoto' role='presentation' src={this.props.song.album_art}
-          onDoubleClick={this.handleDoubleClick.bind(this)}
-         onClick={this.handlePlayPauseSong.bind(this)}/>
-        <Audio src={this.props.song.preview} loop uniqueId={this.props.song.id} />
+      <img id='albumPhoto' role='presentation' src={this.props.song.album_art}
+         onClick={this.handlePlayPauseSong.bind(this)}
+       onDoubleClick={this.handleDoubleClick.bind(this)}/>
+        <Audio src={this.props.song.preview} loop uniqueId={this.props.song.id} />&nbsp;&nbsp;&nbsp;
       </span>
     )
   }

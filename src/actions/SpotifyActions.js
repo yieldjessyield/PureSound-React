@@ -79,7 +79,7 @@ export function findRelatedArtist(artistId, nahArtists){
 
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + artistId + '/related-artists',
+     url: 'https://api.spotify.com/v1/artists/' + artistId + '/related-artists',
      type:'GET'
     }).done(function(data){
 
@@ -106,7 +106,7 @@ export function findTopTracks(artistId){
   event.preventDefault()
   return function(dispatch){
     $.ajax({
-     url: 'http://api.spotify.com/v1/artists/' + artistId + '/top-tracks?country=SE',
+     url: 'https://api.spotify.com/v1/artists/' + artistId + '/top-tracks?country=SE',
      type:'GET'
     }).done(function(data){
       //can refactor later

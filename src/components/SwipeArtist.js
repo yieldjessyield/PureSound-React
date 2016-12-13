@@ -8,11 +8,9 @@ import ShowArtist from './ShowArtist'
 import '../App.css';
 import ShowSongs from './ShowSongs'
 import ReactDOM from 'react-dom';
-// import ArtistsBar from './ArtistsBar'
-// import UserBar from './UserBar'
-// import HelpBar from './HelpBar'
 import $ from 'jquery'
 import NavBar from './NavBar'
+import { browserHistory } from 'react-router'
 
 class SwipeArtist extends React.Component {
 
@@ -26,15 +24,16 @@ class SwipeArtist extends React.Component {
     this.handleLikeArtist = this.handleLikeArtist.bind(this)
     this.handleShowSongs = this.handleShowSongs.bind(this)
     this.handleShowSongName = this.handleShowSongName.bind(this)
-    // this.artistsBarClick = this.artistsBarClick.bind(this)
-    // this.userBarClick = this.userBarClick.bind(this)
-    // this.helpBarClick = this.helpBarClick.bind(this)
   }
+
 
   componentDidMount(){
+    // debugger
+    if (this.props.user.jwt === undefined){
+      browserHistory.push('/')
+    }
     ReactDOM.findDOMNode(this.refs.divFocus).focus();
   }
-
 
   handleOnKeyDown(event){
     event.preventDefault()
@@ -49,14 +48,15 @@ class SwipeArtist extends React.Component {
     else if (event.keyCode === 40){
       // down
       this.handleShowSongs()
+      $('#container').show()
     }
     else if (event.keyCode === 38){
       //  up
+      $('#container').hide()
     }
   }
 
   handleShowSongs (event){
-    // event.preventDefault()
     this.setState({songPlaying: ""})
     this.props.findTopTracks(this.props.swipeArtist.spotify_id)
   }

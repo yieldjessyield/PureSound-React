@@ -26,7 +26,7 @@ class InitialArtist extends Component {
     return(
       <div id='InitialArtist'>
       <YesArtists />
-      <h1 className='initialArtistsProcess'>s u b m i t&nbsp; t h r e e&nbsp; a r t i s t s</h1>
+      <h1 id='initialArtistsProcess'>s u b m i t&nbsp; t h r e e&nbsp; a r t i s t s</h1>
       <form onSubmit={this.handleArtistCheck.bind(this)}>
         <label className='initialArtistsProcess' type="text">n a m e:</label>&nbsp;&nbsp;
         <input id='artistSearch' type="text" autoComplete='off'/>&nbsp;&nbsp;

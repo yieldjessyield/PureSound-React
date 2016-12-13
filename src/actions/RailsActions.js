@@ -5,31 +5,36 @@ import { browserHistory } from 'react-router'
 export function createUserAction(email, password, phoneNumber){
   return function(dispatch){
   $.ajax({
-     url: 'http://localhost:3000/users',
+     url: 'https://simplify-rails.herokuapp.com/users',
      type:'POST',
      data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      localStorage.setItem('jwt', data.jwt)
-      // fix this dispatch it's not working yet
-      dispatch({type: 'NEW_USER', payload: data})
-      browserHistory.push('/artists')
+      if (data.error){
+        $('.form-control').val('')
+        alert('email is not unique')
+        browserHistory.push('/')
+      } else {
+        localStorage.setItem('jwt', data.jwt)
+        // fix this dispatch it's not working yet
+        dispatch({type: 'NEW_USER', payload: data})
+        browserHistory.push('/artists')
+      }
     })
   }
 }
 
 export function loginUserAction(email, password){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/sessions",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/sessions",
             type: "POST",
             data: JSON.stringify({user: {email: email, password: password}}),
      contentType:"application/json; charset=utf-8",
      dataType:"json"
     }).done(function(data){
-      debugger
       if (data.error){
-
+        $('.form-control').val('')
         alert('poor street cred, try again')
         browserHistory.push('/')
       } else {
@@ -52,14 +57,14 @@ export function storeArtistsRails(artistsData){
   return function(dispatch){
     // Go to rails and set up in artists controller create
     // method. parce this data and save relevent stuff to db
-    $.ajax({url:"http://localhost:3000/artists",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/artists",
             type: "POST",
             data: JSON.stringify({artists: {artistsData: artistsData}}),
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
       // this will save likedartists to state
-      debugger
+
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists
@@ -72,14 +77,14 @@ export function storeArtistsRails(artistsData){
 // triggered by login button, grabs user's liked artists from rails db
 export function getLikedArtistsAction(){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/liked_artists",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/liked_artists",
             type: "GET",
      contentType:"application/json; charset=utf-8",
      headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
       // debugger
       // saves the user's liked artists to the state
-      debugger
+
       dispatch({type: 'SAVE_LIKED_ARTISTS', payload: data.liked_artists})
       let nahArtists = []
       let artists = data.liked_artists
@@ -93,7 +98,7 @@ export function getLikedArtistsAction(){
 // if user likes an artist this saves that artist to db
 export function storeLikedArtistAction(likedArtistData){
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/save_liked_artist",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/save_liked_artist",
             type: "POST",
             data: JSON.stringify({likedArtistData: likedArtistData}),
      contentType:"application/json; charset=utf-8",
@@ -112,7 +117,7 @@ export function submitUserUpdate(email, password, phoneNumber){
   //figure out what data is coming in
 
   return function(dispatch){
-    $.ajax({url:"http://localhost:3000/update_user_info",
+    $.ajax({url:"https://simplify-rails.herokuapp.com/update_user_info",
             type: "POST",
             data: JSON.stringify({user: {email: email, password: password, phone_number: phoneNumber}}),
      contentType:"application/json; charset=utf-8",

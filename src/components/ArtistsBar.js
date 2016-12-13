@@ -17,10 +17,8 @@ class ArtistsBar extends React.Component {
 
   displayCoverFlow(){
     let url = 'https://play.spotify.com/artist/'
-    debugger
     return (
       this.props.likedArtists.map(artist => {
-          debugger
         return(
           // <span>
           <img id='coverFlowPhoto' height='175px' src={artist.image}
@@ -33,6 +31,7 @@ class ArtistsBar extends React.Component {
   render() {
     return(
       <div>
+      <br/>
       <Coverflow height='270' width='100%' id='CoverFlow'
         startPosition={0}
         displayQuantityOfSide={3}
@@ -43,7 +42,7 @@ class ArtistsBar extends React.Component {
       >
         {this.displayCoverFlow()}
       </Coverflow>
-      <div className='yourLikedArtists'>your liked artists</div>
+      <div className='yourLikedArtists'>artists</div>
     </div>
     )
   }
@@ -51,7 +50,6 @@ class ArtistsBar extends React.Component {
 }
 
 function mapStateToProps(state){
-  debugger
   return {likedArtists: state.likedArtists }
 }
 
