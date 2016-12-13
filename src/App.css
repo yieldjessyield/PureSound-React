@@ -146,7 +146,7 @@ body {
 .checkButtons {
   color: black;
   background-color: inherit;
-  font-size: 20px;
+  font-size: 15px;
   border: 1px solid black;
   outline: none;
   border-radius: 15px;
@@ -206,6 +206,12 @@ body {
   font-size: 170px;
   padding-left: 20px;
   clear: both;
+}
+
+#confirmArtist {
+  color: white;
+  font-family: 'Bungee Inline', cursive;
+  font-size: 25px;
 }
 
 #doubleClickSong {
