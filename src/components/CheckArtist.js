@@ -29,6 +29,7 @@ class CheckArtist extends Component {
         <div id='checkArtistDivId'>
           <br/>
           <img id='artistCheckImage' role='presentation' src={artist.artistUrl}/><br/>
+          <h3 id='confirmArtist'>{artist.name}</h3><br/>
           <button className ='checkButtons' onClick={this.handleYesCheck.bind(this)}>v e r i f y</button>
           <button className ='checkButtons' onClick={this.handleNoCheck.bind(this)}>n v m</button>
         </div>

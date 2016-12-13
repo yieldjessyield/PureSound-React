@@ -145,11 +145,11 @@ body {
 
 .checkButtons {
   color: white;
-  background-color: black;
+  background-color: black
   font-size: 20px;
   border: 1px solid black;
-  /*background: transparent;*/
   outline: none;
+  border-radius: 10px;
 }
 
 .checkButtons:hover {
@@ -327,6 +327,7 @@ body {
   font-size: 15px;
   border: 1px solid black;
   background-color: black;
+  border-radius: 5px;
 }
 
 #initialArtistSubmit:hover {
