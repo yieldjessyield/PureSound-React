@@ -15,16 +15,14 @@ class ShowSongs extends React.Component {
   handlePlayPauseSong(event){
     let songs = this.props.songs
     let clickedSong = this.props.song
-    // let i = songs.indexOf(clickedSong)
 
     if(this.props.song.playStatus === false){
       this.props.playSong(songs,clickedSong)
-
-        // this.props.handleShowSongName(songToPlay)
     }
     else if (this.props.song.playStatus === true) {
       this.props.pauseSong(songs);
     }
+    
   }
 
   handleDoubleClick(event){
@@ -37,7 +35,7 @@ class ShowSongs extends React.Component {
     return(
       <span className='showSongsClass' >
       <img id='albumPhoto' role='presentation' src={this.props.song.album_art}
-         onClick={this.handlePlayPauseSong.bind(this)}/>
+         onClick={this.handlePlayPauseSong.bind(this)} on/>
         <Audio src={this.props.song.preview} loop uniqueId={this.props.song.id} />&nbsp;&nbsp;&nbsp;
       </span>
     )

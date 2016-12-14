@@ -63,7 +63,7 @@ export function playSong(songs, clickedSong){
     let notClicked = [0,1,2].filter(function(n){
       return n != i
     })
-    
+
     songs[i].playStatus = true
     songs[notClicked[0]].playStatus = false
     songs[notClicked[1]].playStatus = false
@@ -91,10 +91,9 @@ export function pauseSong(songs){
        return song.playStatus = false
     })
 
-    let songPlaying = "  "
 
     dispatch({type: 'SAVE_SONGS', payload: songs})
-    dispatch({type: 'SONG_PLAYING', payload: songPlaying})
+    dispatch({type: 'SONG_PLAYING', payload: "  "})
 
     songs.map(function(song) {
         dispatch(audioPause(song.id));
