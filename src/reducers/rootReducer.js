@@ -77,8 +77,17 @@ function reducerNahArtists(state=[], action) {
   }
 }
 
+function reducerSongPlaying(state="", action) {
+  switch (action.type) {
+    case 'SONG_PLAYING':
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
 const appReducer = combineReducers({
-  user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer
+  songPlaying: reducerSongPlaying, user: reducerUser, likedArtists: reducerLikedArtists, swipeArtist: reducerSwipeArtist, songs: reducerSongs, initialArtist: reducerInitialArtist, yesArtists: reducerYesArtists, nahArtists: reducerNahArtists, audio: audioReducer
 })
 
 const rootReducer = (state, action) => {

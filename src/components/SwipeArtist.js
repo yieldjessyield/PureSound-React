@@ -89,7 +89,7 @@ class SwipeArtist extends React.Component {
 
   render() {
 
-    let songName = this.state.songPlaying
+    let songName = this.props.songPlaying
 
     var songsBar;
 
@@ -117,7 +117,7 @@ class SwipeArtist extends React.Component {
 }
 
 function mapStateToProps(state){
-  return {songs: state.songs, swipeArtist: state.swipeArtist, likedArtists: state.likedArtists, nahArtists: state.nahArtists, user: state.user}
+  return {songPlaying: state.songPlaying, songs: state.songs, swipeArtist: state.swipeArtist, likedArtists: state.likedArtists, nahArtists: state.nahArtists, user: state.user}
 }
 
 function mapDispatchToProps(dispatch){

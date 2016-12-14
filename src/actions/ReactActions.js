@@ -59,39 +59,25 @@ export function playSong(songs, clickedSong){
 
   return function(dispatch){
     let i = songs.indexOf(clickedSong)
-    debugger
+
     let notClicked = [0,1,2].filter(function(n){
       return n != i
     })
-    debugger
+    
     songs[i].playStatus = true
     songs[notClicked[0]].playStatus = false
     songs[notClicked[1]].playStatus = false
 
-
+    let songPlaying = clickedSong.name
 
     dispatch({type: 'SAVE_SONGS', payload: songs});
+    dispatch({type: 'SONG_PLAYING', payload: songPlaying})
 
-    let call1 = function (){
-    dispatch(audioPlay(songs[i].id));
-    // dispatch(audioSrc(songs[i].preview));
-    // call2();
-    // call3();
-  }
-
-    let call2 = function(){
-    dispatch(audioPause(songs[notClicked[0]].id));
-    // dispatch(audioSrc(songs[notClicked[0]].preview));
-  }
-
-    let call3 = function(){
-    dispatch(audioPause(songs[notClicked[1]].id));
-    // dispatch(audioSrc(songs[notClicked[1]].preview));
-  }
-
-    call1()
-    call2()
-    call3()
+    (function (){
+      dispatch(audioPlay(songs[i].id));
+      dispatch(audioPause(songs[notClicked[0]].id));
+      dispatch(audioPause(songs[notClicked[1]].id));
+    }())
 
   }
 }
@@ -105,14 +91,18 @@ export function pauseSong(songs){
        return song.playStatus = false
     })
 
+    let songPlaying = "  "
+
     dispatch({type: 'SAVE_SONGS', payload: songs})
+    dispatch({type: 'SONG_PLAYING', payload: songPlaying})
 
     songs.map(function(song) {
         dispatch(audioPause(song.id));
-        dispatch(audioSrc(song.preview));
     })
   }
 }
+
+
 
 export function logoutUser(){
   return function (dispatch) {
