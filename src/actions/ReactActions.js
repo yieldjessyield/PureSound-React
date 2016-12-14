@@ -74,15 +74,20 @@ export function playSong(songs, clickedSong){
 
     let call1 = function (){
     dispatch(audioPlay(songs[i].id));
-    dispatch(audioSrc(songs[i].preview));}
+    // dispatch(audioSrc(songs[i].preview));
+    // call2();
+    // call3();
+  }
 
     let call2 = function(){
     dispatch(audioPause(songs[notClicked[0]].id));
-    dispatch(audioSrc(songs[notClicked[0]].preview));}
+    // dispatch(audioSrc(songs[notClicked[0]].preview));
+  }
 
     let call3 = function(){
     dispatch(audioPause(songs[notClicked[1]].id));
-    dispatch(audioSrc(songs[notClicked[1]].preview));}
+    // dispatch(audioSrc(songs[notClicked[1]].preview));
+  }
 
     call1()
     call2()
