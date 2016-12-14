@@ -9,7 +9,7 @@ const Home = () => {
     <span className="Home">
         <LoginUser /><br/>
         <CreateUser />
-      <div className='col-md-12' id='logo'>simplify</div>
+      <div id='logo'>simplify</div>
     </span>
   )
 }
