@@ -1,3 +1,8 @@
+#stopMoving {
+  position: absolute;
+  /*text-align: center;*/
+}
+
 body {
   background: url('./images/music3.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -216,6 +221,7 @@ body {
   font-family: 'Bungee Inline', cursive;
   font-size: 25px;
   color: white;
+  text-align: center;
 }
 
 #InitialArtist {
@@ -288,7 +294,7 @@ body {
   align-items: center;
   justify-content: center;
   display: inline-block;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .container {

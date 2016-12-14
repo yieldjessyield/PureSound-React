@@ -37,7 +37,6 @@ function reducerSwipeArtist(state= {}, action){
 }
 
 function reducerSongs(state={}, action){
-  debugger
   switch (action.type){
     case "SAVE_SONGS":
       return {...state, songs: action.payload}

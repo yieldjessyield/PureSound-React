@@ -107,7 +107,7 @@ class SwipeArtist extends React.Component {
           <ShowArtist handleNahArtist={this.handleNahArtist}
             handleLikeArtist={this.handleLikeArtist} handleShowSongs={this.handleShowSongs} artist={this.props.swipeArtist}/>
             <div id='container'>
-              <h4 id='doubleClickSong'>{songName}</h4>
+              <h4 id='doubleClickSong'>&nbsp;{songName}&nbsp;</h4>
               {songsBar}
             </div>
         </span>
@@ -117,7 +117,7 @@ class SwipeArtist extends React.Component {
 }
 
 function mapStateToProps(state){
-  return {songPlaying: state.songPlaying, songs: state.songs, swipeArtist: state.swipeArtist, likedArtists: state.likedArtists, nahArtists: state.nahArtists, user: state.user}
+  return {songPlaying: state.songPlaying,  songs: state.songs, swipeArtist: state.swipeArtist, likedArtists: state.likedArtists, nahArtists: state.nahArtists, user: state.user}
 }
 
 function mapDispatchToProps(dispatch){

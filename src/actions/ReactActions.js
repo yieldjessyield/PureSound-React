@@ -71,7 +71,7 @@ export function playSong(songs, clickedSong){
     let songPlaying = clickedSong.name
 
     dispatch({type: 'SAVE_SONGS', payload: songs});
-    dispatch({type: 'SONG_PLAYING', payload: songPlaying})
+    dispatch({type: 'SONG_PLAYING', payload: songPlaying});
 
     (function (){
       dispatch(audioPlay(songs[i].id));
@@ -86,10 +86,13 @@ export function playSong(songs, clickedSong){
 
 export function pauseSong(songs){
 
+  debugger
   return function(dispatch){
     songs.map(function(song){
        return song.playStatus = false
     })
+
+    debugger
 
 
     dispatch({type: 'SAVE_SONGS', payload: songs})
@@ -101,7 +104,30 @@ export function pauseSong(songs){
   }
 }
 
+export function showName(name){
 
+  return function(dispatch){
+    dispatch({type: 'SONG_PLAYING', payload: name})
+  }
+}
+
+export function disappearName(songs){
+
+  let songPlaying = songs.filter(function(song){
+    return song.playStatus === true
+  })
+
+  if(songPlaying.length > 0){
+    var name = songPlaying[0].name
+  }
+  else{
+    var name = ""
+  }
+
+  return function(dispatch){
+    dispatch({type: 'SONG_PLAYING', payload: name})
+  }
+}
 
 export function logoutUser(){
   return function (dispatch) {
