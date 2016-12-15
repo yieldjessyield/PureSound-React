@@ -35,6 +35,7 @@ export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtist
     if (stateNahArtists === undefined || stateNahArtists.length > 150){
       var nahArtists = []
       dispatch({type: 'CLEAR_NAH', payload: nahArtists})
+      // dispatch({type: 'SONG_PLAYING', payload: ""})
     }else{
        var nahArtists = stateNahArtists
     }
@@ -45,6 +46,7 @@ export function getNewSwipeFromLikedAction(likedState, nahArtist, stateNahArtist
     // and sets the state
     dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
     dispatch({type: 'ADD_TO_NAH', payload: nahArtist.spotify_id})
+    dispatch({type: 'SONG_PLAYING', payload: ""})
   }
 }
 

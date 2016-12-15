@@ -95,9 +95,8 @@ export function findRelatedArtist(artistId, nahArtists){
       while (nahArtists.includes(swiper.spotify_id)){
         swiper = randomizer(data.artists)
       }
-
       dispatch({type: 'SET_SWIPE_ARTIST', payload: swiper})
-
+      dispatch({type: 'SONG_PLAYING', payload: ""})
     })
   }
 }

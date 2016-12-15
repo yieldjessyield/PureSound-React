@@ -91,6 +91,7 @@ export function getLikedArtistsAction(){
       var randArtist = artists[Math.floor(Math.random()*artists.length)];
       // then finds the related artist based on random artist
       dispatch(findRelatedArtist(randArtist.artist_spotify_id, nahArtists))
+
     })
   }
 }
