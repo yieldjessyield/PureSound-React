@@ -29,7 +29,10 @@ class NavBar extends React.Component {
 
   artistsBarClick(){
     if (this.state.artistsBar == false){
+//       don't hide something with jquery - in fact should remove the jquery library from your components - bc you don't need it
+      
       $('#divFocus').hide()
+//       you can set multiple states at once: this.setState({userBar: false, helpBar: false})
       this.setState({userBar: false})
       this.setState({helpBar: false})
     } else {
@@ -40,6 +43,7 @@ class NavBar extends React.Component {
 
   userBarClick(){
     if (this.state.userBar == false){
+      //       don't hide something with jquery - in fact should remove the jquery library from your components - bc you don't need it
       $('#divFocus').hide()
       this.setState({artistsBar: false})
       this.setState({helpBar: false})
@@ -51,6 +55,7 @@ class NavBar extends React.Component {
 
   helpBarClick(){
     if (this.state.helpBar == false){
+      //       don't hide something with jquery - in fact should remove the jquery library from your components - bc you don't need it
       $('#divFocus').hide()
       this.setState({artistsBar: false})
       this.setState({userBar: false})
