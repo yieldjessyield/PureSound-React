@@ -9,6 +9,8 @@ import $ from 'jquery'
 class LoginUser extends React.Component {
 
   switchVisible(event){
+//       Here you don't want to directly access the dom, but instead have changes in state, and because a change in state
+//     always re-renders the dom, you are ok.
     if (document.getElementById('login')){
       if (document.getElementById('loginForm').style.display === ''){
         document.getElementById('loginForm').style.display = 'block';
@@ -23,6 +25,8 @@ class LoginUser extends React.Component {
 
   handleloginUser (event){
     event.preventDefault()
+//     here again, you don't want to grab data off of the dom but instead, have a onChange on an input, have that call a callback
+//     that changes the state.
     let email = event.target.children[1].value
     let password = event.target.children[4].value
 
