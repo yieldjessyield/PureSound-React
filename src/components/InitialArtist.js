@@ -13,6 +13,7 @@ import $ from 'jquery'
 class InitialArtist extends Component {
   handleArtistCheck(event){
     event.preventDefault()
+//       here too, don't pull data directly off the dom, but instead store it in state every time an input changes.
     this.props.findArtistByName(event.target.children[1].value)
   }
 
