@@ -16,6 +16,7 @@ class ArtistsBar extends React.Component {
   // }
 
   displayCoverFlow(){
+//     requests to external apis should occur in from rails.
     let url = 'https://play.spotify.com/artist/'
     return (
       this.props.likedArtists.map(artist => {
