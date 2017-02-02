@@ -23,6 +23,7 @@ class CreateUser extends React.Component {
 
   handleCreateUser (event){
     event.preventDefault()
+//     don't directly access the dom.  Instead, have a onChange on each input, and set a state each time there is a change. 
     let email = event.target.children[1].value
     let password = event.target.children[4].value
     // let phoneNumber = event.target.children[7].value
