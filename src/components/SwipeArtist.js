@@ -72,6 +72,8 @@ class SwipeArtist extends React.Component {
     // will add artist to nahArtist array in state
     // event.preventDefault()
     this.setState({songPlaying: ""})
+//     multiple action creator calls, should probably occur from the first action creator
+//       And then use redux-thunk to dispatch new actions
     this.props.getNewSwipeFromLikedAction(this.props.likedArtists, this.props.swipeArtist, this.props.nahArtists)
     // check what this is below
     this.props.getLikedArtistsAction()
@@ -81,6 +83,9 @@ class SwipeArtist extends React.Component {
   handleLikeArtist(){
     // should create new swipe artist based on likedartist related artist
     // should also save to rails db and update liked artist state
+    
+    //     multiple action creator calls, should probably occur from the first action creator
+//       And then use redux-thunk to dispatch new actions
     this.setState({songPlaying: ""})
     this.props.storeLikedArtistAction(this.props.swipeArtist)
     this.props.findRelatedArtist(this.props.swipeArtist.spotify_id, this.props.nahArtists)
