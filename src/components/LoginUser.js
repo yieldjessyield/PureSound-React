@@ -8,7 +8,6 @@ import $ from 'jquery'
 
 class LoginUser extends React.Component {
 
-
   handleloginUser (event){
     event.preventDefault()
     let email = event.target.children[1].value

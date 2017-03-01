@@ -7,23 +7,6 @@ import $ from 'jquery'
 
 
 class CreateUser extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { formOpen: false,}
-  }
-
-  switchVisible(event){
-    if (document.getElementById('signUp')){
-      if (document.getElementById('signUpForm').style.display === ''){
-        document.getElementById('signUpForm').style.display = 'block';
-        $('#login').hide()
-      }
-      else {
-        document.getElementById('signUpForm').style.display = '';
-        $('#login').show()
-      }
-    }
-  }
 
   handleCreateUser (event){
     event.preventDefault()
@@ -52,13 +35,15 @@ class CreateUser extends React.Component {
             <input className='form-control' type="text" required/><br/>
             <label className='col-form-label' type="text">p a s s w o r d</label>
             <input className='form-control' type="password" required/><br/>
-            <button id='login' type='submit'>Sign Up</button>
+            <button id='login' type='submit'>Submit</button>
           </form>
+      var searchBar = "add component here"
     }
     return(
       <div>
         {backButton}
         {show}
+        {searchBar}
       </div>
     )
   }
