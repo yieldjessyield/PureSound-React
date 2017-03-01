@@ -38,29 +38,26 @@ class CreateUser extends React.Component {
 
 
     if (this.props.signupFormOpen === false && this.props.signupVis === true){
-      debugger
       var show = <button id='signUp' onClick={this.props.onSignupClick}>Sign Up</button>
     }
 
     if (this.props.signupFormOpen === false && this.props.signupVis === false){
-      debugger
       var show = ""
     }
 
     if (this.props.signupFormOpen === true){
-      debugger
-      var show = <div id='signUpForm'>
-          <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
+      var backButton = <button className='formButton' onClick={this.props.onBackClick}>&#8592;</button>
+      var show =<form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
             <label className='col-form-label' type="text">e m a i l</label>
             <input className='form-control' type="text" required/><br/>
             <label className='col-form-label' type="text">p a s s w o r d</label>
             <input className='form-control' type="password" required/><br/>
-            <button className='formButton' type="submit">&#8594;</button>
+            <button id='login' type='submit'>Sign Up</button>
           </form>
-        </div>
     }
     return(
       <div>
+        {backButton}
         {show}
       </div>
     )

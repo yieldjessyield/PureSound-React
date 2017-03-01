@@ -20,19 +20,16 @@ class LoginUser extends React.Component {
 
 
   render() {
-    debugger
     if (this.props.loginFormOpen === false && this.props.loginVis === true){
-      debugger
       var show = <button id='login' onClick={this.props.onLoginClick} type='submit'>Login</button>
     }
 
     if (this.props.loginFormOpen === false && this.props.loginVis === false){
-      debugger
       var show = ""
     }
 
     if (this.props.loginFormOpen === true){
-      debugger
+      var backButton = <button className='formButton' onClick={this.props.onBackClick}>&#8592;</button>
       var show = <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
           <label className='col-form-label' type="text">e m a i l</label>
           <input className='form-control' type="text" /><br/>
@@ -44,6 +41,7 @@ class LoginUser extends React.Component {
 
     return(
       <div>
+        {backButton}
         {show}
       </div>
     )
