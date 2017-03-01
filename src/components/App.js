@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import '../App.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+
+injectTapEventPlugin();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {this.props.children}
-      </div>
+    	<MuiThemeProvider>
+    	  <div className="App">
+    	    {this.props.children}
+    	  </div>
+    	</MuiThemeProvider>
     );
   }
 }

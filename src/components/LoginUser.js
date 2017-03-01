@@ -7,18 +7,15 @@ import '../App.css';
 import $ from 'jquery'
 
 class LoginUser extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = { formOpen: false,}
+    }
+
 
   switchVisible(event){
-    if (document.getElementById('login')){
-      if (document.getElementById('loginForm').style.display === ''){
-        document.getElementById('loginForm').style.display = 'block';
-        $('#signUp').hide()
-      }
-      else {
-        document.getElementById('loginForm').style.display = '';
-        $('#signUp').show()
-      }
-    }
+    debugger
+    this.setState({formOpen: !this.state.formOpen}) 
   }
 
   handleloginUser (event){
@@ -32,18 +29,28 @@ class LoginUser extends React.Component {
 
 
   render() {
-    return(
-      <div>
-        <button id='login' onClick={this.switchVisible}>Login</button>
-        <div id='loginForm' className='form-group'>
+    debugger
+    if (this.state.formOpen === false){
+      debugger
+      var show = <button id='login' onClick={this.switchVisible.bind(this)} type='submit'>Login</button>
+    }
+
+    if (this.state.formOpen === true){
+      debugger
+      var show = <div id='loginForm' className='form-group'>
         <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
           <label className='col-form-label' type="text">e m a i l</label>
           <input className='form-control' type="text" /><br/>
           <label className='col-form-label' type="text">p a s s w o r d</label>
           <input className='form-control' type="password" /><br/>
-          <button className='formButton' type="submit">&#8594;</button>
+          <button id='login' type='submit'>Login</button>
         </form>
         </div>
+    }
+
+    return(
+      <div>
+        {show}
       </div>
     )
   }

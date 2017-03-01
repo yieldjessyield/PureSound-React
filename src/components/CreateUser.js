@@ -7,6 +7,10 @@ import $ from 'jquery'
 
 
 class CreateUser extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { formOpen: false,}
+  }
 
   switchVisible(event){
     if (document.getElementById('signUp')){
@@ -31,10 +35,15 @@ class CreateUser extends React.Component {
   }
 
   render() {
-    return(
-      <div>
-        <button id='signUp' onClick={this.switchVisible}>Sign Up</button>
-        <div id='signUpForm'>
+    debugger
+    if (this.state.formOpen === false){
+      debugger
+      var show = <button id='signUp' onClick={this.switchVisible}>Sign Up</button>
+    }
+
+    if (this.state.formOpen === true){
+      debugger
+      var show = <div id='signUpForm'>
           <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>
             <label className='col-form-label' type="text">e m a i l</label>
             <input className='form-control' type="text" required/><br/>
@@ -43,6 +52,10 @@ class CreateUser extends React.Component {
             <button className='formButton' type="submit">&#8594;</button>
           </form>
         </div>
+    }
+    return(
+      <div>
+        {show}
       </div>
     )
   }
