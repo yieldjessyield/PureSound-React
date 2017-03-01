@@ -35,13 +35,19 @@ class CreateUser extends React.Component {
   }
 
   render() {
-    debugger
-    if (this.state.formOpen === false){
+
+
+    if (this.props.signupFormOpen === false && this.props.signupVis === true){
       debugger
-      var show = <button id='signUp' onClick={this.switchVisible}>Sign Up</button>
+      var show = <button id='signUp' onClick={this.props.onSignupClick}>Sign Up</button>
     }
 
-    if (this.state.formOpen === true){
+    if (this.props.signupFormOpen === false && this.props.signupVis === false){
+      debugger
+      var show = ""
+    }
+
+    if (this.props.signupFormOpen === true){
       debugger
       var show = <div id='signUpForm'>
           <form className='form-group' onSubmit={this.handleCreateUser.bind(this)}>

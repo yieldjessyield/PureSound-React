@@ -7,16 +7,7 @@ import '../App.css';
 import $ from 'jquery'
 
 class LoginUser extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = { formOpen: false,}
-    }
 
-
-  switchVisible(event){
-    debugger
-    this.setState({formOpen: !this.state.formOpen}) 
-  }
 
   handleloginUser (event){
     event.preventDefault()
@@ -30,22 +21,25 @@ class LoginUser extends React.Component {
 
   render() {
     debugger
-    if (this.state.formOpen === false){
+    if (this.props.loginFormOpen === false && this.props.loginVis === true){
       debugger
-      var show = <button id='login' onClick={this.switchVisible.bind(this)} type='submit'>Login</button>
+      var show = <button id='login' onClick={this.props.onLoginClick} type='submit'>Login</button>
     }
 
-    if (this.state.formOpen === true){
+    if (this.props.loginFormOpen === false && this.props.loginVis === false){
       debugger
-      var show = <div id='loginForm' className='form-group'>
-        <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
+      var show = ""
+    }
+
+    if (this.props.loginFormOpen === true){
+      debugger
+      var show = <form className='form-group' onSubmit={this.handleloginUser.bind(this)}>
           <label className='col-form-label' type="text">e m a i l</label>
           <input className='form-control' type="text" /><br/>
           <label className='col-form-label' type="text">p a s s w o r d</label>
           <input className='form-control' type="password" /><br/>
           <button id='login' type='submit'>Login</button>
         </form>
-        </div>
     }
 
     return(
